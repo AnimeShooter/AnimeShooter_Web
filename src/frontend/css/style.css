@@ -59,7 +59,29 @@ h1
 	border-radius: 0px 0px 12px 12px;
     	padding-bottom: 3px;
 }
-.page-navbar  > ul > li
+.page-navbar > ul > li
+{
+	list-style: none;
+	display: inline;
+}
+.page-inline-navbar
+{
+	width: 100%;
+	padding: 0;
+	padding-bottom: 7px;
+	flex-direction: row;
+	color: ghostwhite;
+}
+.page-inline-navbar > ul
+{
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	font-size: 18px;
+    	background-color: #591a65;
+	padding: 3px 15px 3px 15px;
+}
+.page-inline-navbar > ul > li
 {
 	list-style: none;
 	display: inline;
@@ -107,12 +129,32 @@ h1
 	min-height: 620px;
 }
 
+.page-online > ul {
+	list-style: none;
+	list-style: none;
+	color: black;
+	padding-left: 10px;
+}
+.page-online > ul > li {
+	border-radius: 15px 0 0 0;
+	background: linear-gradient(45deg, #00000020, #00000000 );
+	line-height: 19px; 
+	margin-bottom: 3px;
+	width: 32%;
+	display: inline-block;
+}
+.page-online > ul > li > img {
+	position: absolute;	
+}
+.page-online > ul > li > span {
+	margin-left: 26px;
+}
+
 /* Page elements */
 .carousel {
 	width: 600px;
 	height: 380px;
 	margin: auto;
-	background: url("");
 	margin-top: 10px;
 	margin-bottom: 25px;
 }
@@ -124,9 +166,6 @@ h1
 }
 
 /* articles aka page content */
-.article
-{
-}
 .article-note
 {
 	font-style: italic;
@@ -221,5 +260,8 @@ h1
 	}
 	.carousel  {
 		width: auto;
+	}
+	.page-online > ul > li {
+		width: 100%;
 	}
 }
