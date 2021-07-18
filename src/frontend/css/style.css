@@ -107,6 +107,22 @@ h1
 	min-height: 620px;
 }
 
+/* Page elements */
+.carousel {
+	width: 600px;
+	height: 380px;
+	margin: auto;
+	background: url("");
+	margin-top: 10px;
+	margin-bottom: 25px;
+}
+
+.carousel-item > img{
+	height: 380px;
+	width: 100%;
+	box-shadow: 0 0 6px 0 black;
+}
+
 /* articles aka page content */
 .article
 {
@@ -130,13 +146,39 @@ h1
 {
 	text-shadow: 0px 0px 3px green; color: #3bb740;
 }
-.online-col {
+.room-col-2 {
 	width: 50%;
 	display: inline-block;
-	margin: 5px -2px 5px -2px; /* dafuq? */
+	margin: 5px -2px;
 }
-.online-text {
-	margin-left: 4px;
+.room-col {
+   	display: inline-block;
+	background-color: antiquewhite;
+	border: 4px solid antiquewhite;
+	border-radius: 12px;
+	box-shadow: 1px 1px 4px black;
+	width: 95%; /* hacky fix */
+}
+.room-item {
+	width: 106px;
+	height: 76px;
+	background-color: cadetblue;
+	float: left;
+	margin-right:12px;
+	border-radius: 10px;
+}
+.room-title {
+	font-weight: 600;
+}
+.room-description {
+	padding-top: 10px;
+}
+.room-footer {
+	float: right;
+	font-size: 12px;
+	display: block;
+	top: 16px;
+	position: relative;
 }
 .online-pic {
 	/* Placeholder */
@@ -170,7 +212,14 @@ h1
 	.nav-item {
 		line-height: 30px;
 	}
-	.online-col {
+	.room-col-2 {
 		width: 100%;
+	}
+	.room-col {
+		width: 98%;
+		margin: auto;
+	}
+	.carousel  {
+		width: auto;
 	}
 }
