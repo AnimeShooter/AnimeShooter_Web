@@ -39,16 +39,27 @@ let ASAPI = function ()  {
 	}
 
 	_getOnlinePlayers = function() {
-		//fetch(serverURI + "player/online")
-		//.then(response => response.json())
-		//.then(data => console.log(data));
-		
-		var players = [{"name":"Ferib",experience:12,level:23,kills:69,deaths:1,meleeKills:0,gunKills:0,sniperKills:0,bombKills:0,gm:true}];
-		playerCountElement.textContent = players.length;
-		for(let i = 0; i < players.length; i++)
-		{
-			console.log("Name: " + players[i].name);
-		}
+		fetch(serverURI + "player/online")
+		.then(response => response.json()
+		.then(function(data) {
+			var players = data; //[{"name":"Ferib",experience:12,level:23,kills:69,deaths:1,meleeKills:0,gunKills:0,sniperKills:0,bombKills:0,gm:true}];
+			playerCountElement.textContent = players.length;
+			playerPage.innerText = ""; // clear
+			var ul = document.createElement("ul");
+			for(let i = 0; i < players.length; i++)
+			{
+				var li = document.createElement("li");
+				var img = document.createElement("img");
+				img.src = "/api/img/level/" + (players[i].gm ? "gm" : players[i].level);
+				var span = document.createElement("span");
+				span.textContent = players[i].name;
+
+				li.appendChild(img);
+				li.appendChild(span);
+				ul.appendChild(li);
+			}
+			playerPage.appendChild(ul);
+		}));	
 	}
 
 	_getActiveRooms = function() {
@@ -69,14 +80,14 @@ let ASAPI = function ()  {
 				var roomCol = document.createElement("div");
 				roomCol.className = "room-col";
 				var roomItem = document.createElement("div");
-				roomItem.style = "background-image: url('/api/img/maps/small/" + rooms[i].map + ".png');";
+				roomItem.style = "background-image: url('/api/img/maps/small/" + rooms[i].map + "');";
 				roomItem.className = "room-item";
 				var roomTitle = document.createElement("span");
 				roomTitle.className = "room-title";
-				roomTitle.textContent = rooms[i].name;
+				roomTitle.textContent = "#" + rooms[i].id + " - " + rooms[i].name;
 				var roomDescription = document.createElement("div");
 				roomDescription.className = "room-description";
-				roomDescription.textContent = "Room Mode: " + rooms[i].mode;
+				roomDescription.textContent = rooms[i].mode; // TODO: add padlock for PW?
 				var roomFooter = document.createElement("span");
 				roomFooter.className = "room-footer";
 				roomFooter.textContent = rooms[i].playerCount + "/" + rooms[i].maxPlayers;			

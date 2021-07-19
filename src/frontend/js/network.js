@@ -173,8 +173,8 @@ let wsserver = function (URI) {
 	}
 };
 
-let wss = new wsserver("ws://localhost:8026");
-//let wss = new wsserver("wws://animeshooter.com/ws");
+//let wss = new wsserver("ws://localhost:8026");
+let wss = new wsserver("wss://animeshooter.com/ws");
 wss.onConnect(function() {
 	console.log("Connected!")
 	updateOnlineStatus(wss.connected())
