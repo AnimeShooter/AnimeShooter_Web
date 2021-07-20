@@ -2,8 +2,8 @@
 <html>
 <head lang="en-US">
 	<title>AnimeShooter</title>
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">	
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.ico">	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="description" content="Server Emulator for QPang aka MangaFigher." />
 	<meta name="keywords" content="Server emulator, Multiplayer, FPS, Shooter, anime, cartoon" />
@@ -12,6 +12,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans" rel="stylesheet">
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="og:title" content="AnimeShooter!" />
 	<meta property="og:type" content="profile" />
@@ -76,7 +77,7 @@
 			<div class="page" id="Online" style="display: none">
 				<h1>Live Server Statistics<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
 				<p>
-					Total of <span id="gs-playerscount">4</span> Players in <span id="gs-roomcount">3</span> Game Rooms!
+					Total of <span id="gs-playerscount">0</span> Players in <span id="gs-roomcount">0</span> Game Rooms!
 				</p>
 				<div class="page-inline-navbar">
 					<ul>
@@ -100,22 +101,72 @@
 			<div class="page" id="Howto" style="display: none">
 				<h1>How to Connect<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
 				<p>
-					Before you can play the game you must first of all DOWNLOAD the game files togheter with our custom patcher.
+					<a href="download/QPangSetup.exe"><img style="float:right;" src="img/download-qpang.png"></a>
+					Before you can play the game you must first download and install the game files, simply click the download button below to download the original QPang installer.
+					Next you want to open the installer and follow the installation wizard. After that is done you will need to download our custom launcher.
+				</p>	
+				<h2>Launcher</h2>
+				<p>
+					<a href="download/QPangLauncher.exe"><img style="float:right;" src="img/download-launcher.png"></a>
+					The game is configured to connect to the original game servers out of the box, therefore we need to ship a custom launcher that forces the connection to our very own game servers!
 				</p>
 				<p>
-					More information on gamefiles + patcher will be provided soonTM
+					Not only do we re-configure the game connection, we also provide a bunch of patches for the game to tweak/modify all kinds of settings, configurations and even behavior of the game. More info on that follows soon.
+				</p>
+				<h2>Custom Patches</h2>
+				<p>
+					More information regarding custom patches will be added soon!
 				</p>
 			</div>
 			<!-- Account -->
 			<div class="page" id="Account" style="display: none">
 				<h1>Account<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
-				<p>
-					Your are not logged in!
-				</p>	
+				<p id="account-error" style="color: red">
+					You are not logged in!	
+				</p>
+				<div class="account-container">
+					<div class="account-row">
+						<div class="account-col">
+							<div class="account-form">
+								<h3>Login</h3>
+								<p>
+									<label>Username: </label>
+									<input type="text"/><br/>
+									<label>Password: </label>
+									<input type="password"/><br/>
+									<input type="button" value="Login"/>
+								</p>
+							</div>
+						</div>
+						<div class="account-col">
+							<div class="account-form">
+								<h3>Register</h3>
+								<p>
+									<label>Username: </label>
+									<input type="text"/><br/>
+									<label>E-Mail: </label>
+									<input type="email"/><br/>
+									<label>Password: </label>
+									<input type="password"/><br/>
+									<label>Repeat Password: </label>
+									<input type="password"/><br/>
+									<input type="button" value="Register"/>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<form action="?" method="POST">
+						<div class="g-recaptcha" data-sitekey="6LfAoqsbAAAAAKWJ-ifaAkQFLXFR9TABni9-ujYB"></div>
+						<br/>
+						<input type="submit" value="Submit">
+					</form>
+				</div>	
 			</div>
 		</div>
 		<div class="page-footer">
-			Qpang and MangaFighter are not owned by me. This project is not affiliated with OnNet or GamesCampus in any way.
+			Qpang nor MangaFighter are not owned by me. This project is not affiliated with OnNet or GamesCampus in any way.
 		</div>
 	</div>
 </body>

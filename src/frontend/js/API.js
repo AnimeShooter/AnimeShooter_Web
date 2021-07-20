@@ -30,12 +30,14 @@ let ASAPI = function ()  {
 	let playerPage;
 	let roomCountElement;
 	let roomPage;
+	let accountErrorText;
 
 	_init = function() {
 		playerCountElement = document.getElementById("gs-playerscount");
 		playerPage = document.getElementById("online-players");
 		roomCountElement = document.getElementById("gs-roomcount");
-		roomPage = document.getElementById("online-rooms");		
+		roomPage = document.getElementById("online-rooms");
+		accountErrorText = document.getElementById("account-error");		
 	}
 
 	_getOnlinePlayers = function() {
@@ -101,6 +103,14 @@ let ASAPI = function ()  {
 			}
 			roomPage.appendChild(roomRow);
 		}));
+	}
+
+	_userLogin = new function() {
+
+	}
+
+	_userRegister = new function() {
+
 	}
 
 	return {
