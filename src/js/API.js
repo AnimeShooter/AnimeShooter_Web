@@ -139,6 +139,7 @@ let ASAPI = function ()  {
 	}
 
 	_handleLogin = function (data, response) {
+		grecaptcha.reset();
 		if(data.message != null)
 		{
 			_handleLogout();
