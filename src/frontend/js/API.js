@@ -141,8 +141,8 @@ let ASAPI = function ()  {
 	_handleLogin = function (data, response) {
 		if(data.message != null)
 		{
-			accountErrorText.textContent = data.message;
 			_handleLogout();
+			accountErrorText.textContent = data.message;
 			return;
 		}	
 		player = data.result;
