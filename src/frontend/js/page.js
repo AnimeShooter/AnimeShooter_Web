@@ -3,6 +3,15 @@ document.getElementById("account-login-button").onclick = function() {
     api.userLogin(document.getElementById("account-login-username").value, document.getElementById("account-login-password").value);
 }
 
+document.getElementById("account-create-button").onclick = function() {
+    api.userRegister(document.getElementById("account-create-username").value, document.getElementById("account-create-email").value,
+                    document.getElementById("account-create-password").value); // TODO: check second PW
+}
+
+document.getElementById("account-logout-button").onclick = function() {
+    api.userLogout();
+}
+
 /* Page */
 function selectPage(name)
 {

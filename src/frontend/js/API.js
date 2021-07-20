@@ -23,8 +23,8 @@
 
 let ASAPI = function ()  {
 
-	//let serverURI = "https://animeshooter.com/api/";
-	let serverURI = "http://localhost:8088/";
+	let serverURI = "https://animeshooter.com/api/";
+	//let serverURI = "http://localhost:8088/";
 
 	let playerCountElement;
 	let playerPage;
@@ -33,6 +33,7 @@ let ASAPI = function ()  {
 	let accountErrorText;
 	let accountLogin;
 	let accountPanel;
+	let accountMsg;
 
 	let player;
 	let authToken;
@@ -45,6 +46,7 @@ let ASAPI = function ()  {
 		accountErrorText = document.getElementById("account-error");		
 		accountLogin = document.getElementById("account-login");
 		accountPanel = document.getElementById("account-panel");
+		accountMsg = document.getElementById("account-msg");
 	}
 
 	_getOnlinePlayers = function() {
@@ -114,44 +116,67 @@ let ASAPI = function ()  {
 	_userLogin = function(name, pw) {
 		fetch(serverURI + "user/login", {
 			method: "POST",
-			/* headers: {
-				"Authorization": "0zx89H-jjBvFo-50JUds-mH8e3g"
-			}, */
-			body: JSON.stringify({"Username": name, "Password": pw})
+			body: JSON.stringify({"Username": name, "Password": pw, "reToken": grecaptcha.getResponse()})
 		})
 		.then(response => response.json()
-		.then(function (data) {
-			if(data.message != null)
-			{
-				accountErrorText.textContent = data.message;
-				return;
-			}	
-			player = data.result;
-			authToken = response.headers.get("x-auth-token");
-			localStorage.setItem("af-token", authToken); // save local
-			console.log("Logged in as " + data.result.name + ", with token " + authToken);
-			
-			// hide login/register panels
-			accountErrorText.textContent = "";
-			accountLogin.style.display = "none";
-			accountPanel.style.display = "block";
-			accountPanel.innerText = "Welcome, " + player.name + "!";
-		}));
+		.then(data => _handleLogin(data, response)));
 	}
+
+	_userRegister = function(name, email, pw) {
+		fetch(serverURI + "user/register", {
+			method: "POST",
+			body: JSON.stringify({"Username": name, "Email": email, "Password": pw, "reToken": grecaptcha.getResponse() })
+		}).then(response => response.json()
+		.then(data => _handleLogin(data, response)));
+	}
+
+	_userAuth = function(token) {
+		fetch(serverURI + "user/info", {
+			headers: { "Authorization": token }
+		})
+		.then(response => response.json()
+		.then(data => _handleLogin(data, response)));
+	}
+
+	_handleLogin = function (data, response) {
+		if(data.message != null)
+		{
+			accountErrorText.textContent = data.message;
+			_handleLogout();
+			return;
+		}	
+		player = data.result;
+		//authToken = response.headers.get("x-auth-token");
+		localStorage.setItem("as-token", authToken); // save local
 	
-
-	_userRegister = new function() {
-
+		// hide login/register panels
+		accountErrorText.textContent = "";
+		accountLogin.style.display = "none";
+		accountPanel.style.display = "block";
+		accountMsg.innerText = "Welcome, " + player.name + "!";
 	}
 
-	_userUpdate = new function() {
+	_userLogout = function() {
+		_handleLogout();
+	}
 
+	_handleLogout = function () {
+		localStorage.setItem("as-token", null);
+		authToken = null;
+		// UI
+		accountErrorText.textContent = "You have been logged out.";
+		accountLogin.style.display = "block";
+		accountPanel.style.display = "none";
+		accountMsg.innerText = "";
 	}
 
 	return {
 		init: _init,
 		getOnlinePlayers: _getOnlinePlayers,
 		getActiveRooms: _getActiveRooms,
-		userLogin: _userLogin
+		userLogin: _userLogin,
+		userAuth: _userAuth,
+		userRegister: _userRegister,
+		userLogout: _userLogout
 	}
 }

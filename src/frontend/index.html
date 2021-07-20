@@ -143,14 +143,14 @@
 								<h3>Register</h3>
 								<p>
 									<label>Username: </label>
-									<input type="text"/><br/>
+									<input type="text" id="account-create-username" required/><br/>
 									<label>E-Mail: </label>
-									<input type="email"/><br/>
+									<input type="email" id="account-create-email" required/><br/>
 									<label>Password: </label>
-									<input type="password"/><br/>
+									<input type="password" id="account-create-password" minlength="8" required /><br/>
 									<label>Repeat Password: </label>
-									<input type="password"/><br/>
-									<input type="submit" value="Register"/>
+									<input type="password" id="account-create-password2" minlength="8" required/><br/>
+									<input type="submit" id="account-create-button" value="Register"/>
 								</p>
 							</div>
 						</div>
@@ -158,15 +158,14 @@
 					<div>
 						<form action="?" method="POST" style="margin-top: 30px;">
 							<div class="g-recaptcha" data-sitekey="6LfAoqsbAAAAAKWJ-ifaAkQFLXFR9TABni9-ujYB"></div>
-							<br/>
-							<input type="submit" value="Submit">
 						</form>
 					</div>	
 				</div>
 				<div class="account-container" id="account-panel" style="display: none;">
 					<div class="account-row">
 						<div class="account-col">
-							test
+							<input type="button" id="account-logout-button" value="Logout" style="float: right"/>
+							<p id="account-msg"></p>
 						</div>
 					</div>
 				</div>	
@@ -188,6 +187,10 @@
 	window.onload = function() {
 		api = new ASAPI();
 		api.init();
+
+		let asToken = localStorage.getItem("as-token");
+		if(asToken != null)
+			api.userAuth(asToken);
 
 		// invoke all
 		api.getOnlinePlayers();
