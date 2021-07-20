@@ -124,17 +124,17 @@
 				<p id="account-error" style="color: red">
 					You are not logged in!	
 				</p>
-				<div class="account-container">
+				<div class="account-container" id="account-login">
 					<div class="account-row">
 						<div class="account-col">
 							<div class="account-form">
 								<h3>Login</h3>
 								<p>
 									<label>Username: </label>
-									<input type="text"/><br/>
+									<input type="text" id="account-login-username"/><br/>
 									<label>Password: </label>
-									<input type="password"/><br/>
-									<input type="button" value="Login"/>
+									<input type="password" id="account-login-password"/><br/>
+									<input type="submit" value="Login" id="account-login-button"/>
 								</p>
 							</div>
 						</div>
@@ -150,18 +150,25 @@
 									<input type="password"/><br/>
 									<label>Repeat Password: </label>
 									<input type="password"/><br/>
-									<input type="button" value="Register"/>
+									<input type="submit" value="Register"/>
 								</p>
 							</div>
 						</div>
 					</div>
+					<div>
+						<form action="?" method="POST" style="margin-top: 30px;">
+							<div class="g-recaptcha" data-sitekey="6LfAoqsbAAAAAKWJ-ifaAkQFLXFR9TABni9-ujYB"></div>
+							<br/>
+							<input type="submit" value="Submit">
+						</form>
+					</div>	
 				</div>
-				<div>
-					<form action="?" method="POST">
-						<div class="g-recaptcha" data-sitekey="6LfAoqsbAAAAAKWJ-ifaAkQFLXFR9TABni9-ujYB"></div>
-						<br/>
-						<input type="submit" value="Submit">
-					</form>
+				<div class="account-container" id="account-panel" style="display: none;">
+					<div class="account-row">
+						<div class="account-col">
+							test
+						</div>
+					</div>
 				</div>	
 			</div>
 		</div>
@@ -177,6 +184,7 @@
 <script src="js/API.js"></script>
 
 <script>
+	api = null;
 	window.onload = function() {
 		api = new ASAPI();
 		api.init();

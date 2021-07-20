@@ -1,3 +1,8 @@
+/* Events */
+document.getElementById("account-login-button").onclick = function() {
+    api.userLogin(document.getElementById("account-login-username").value, document.getElementById("account-login-password").value);
+}
+
 /* Page */
 function selectPage(name)
 {
@@ -14,3 +19,4 @@ function selectOnlinePage(name)
         onlinePages[i].style.display = "none";
     document.getElementById(name).style.display = "block"
 }
+

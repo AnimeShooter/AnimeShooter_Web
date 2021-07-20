@@ -23,14 +23,19 @@
 
 let ASAPI = function ()  {
 
-	let serverURI = "https://animeshooter.com/api/";
-	//let serverURI = "http://localhost:8088/";
+	//let serverURI = "https://animeshooter.com/api/";
+	let serverURI = "http://localhost:8088/";
 
 	let playerCountElement;
 	let playerPage;
 	let roomCountElement;
 	let roomPage;
 	let accountErrorText;
+	let accountLogin;
+	let accountPanel;
+
+	let player;
+	let authToken;
 
 	_init = function() {
 		playerCountElement = document.getElementById("gs-playerscount");
@@ -38,6 +43,8 @@ let ASAPI = function ()  {
 		roomCountElement = document.getElementById("gs-roomcount");
 		roomPage = document.getElementById("online-rooms");
 		accountErrorText = document.getElementById("account-error");		
+		accountLogin = document.getElementById("account-login");
+		accountPanel = document.getElementById("account-panel");
 	}
 
 	_getOnlinePlayers = function() {
@@ -64,8 +71,7 @@ let ASAPI = function ()  {
 		}));	
 	}
 
-	_getActiveRooms = function() {
-		
+	_getActiveRooms = function() {	
 		fetch(serverURI + "room/")
 		.then(response => response.json()
 		.then(function (data) {
@@ -105,17 +111,47 @@ let ASAPI = function ()  {
 		}));
 	}
 
-	_userLogin = new function() {
+	_userLogin = function(name, pw) {
+		fetch(serverURI + "user/login", {
+			method: "POST",
+			/* headers: {
+				"Authorization": "0zx89H-jjBvFo-50JUds-mH8e3g"
+			}, */
+			body: JSON.stringify({"Username": name, "Password": pw})
+		})
+		.then(response => response.json()
+		.then(function (data) {
+			if(data.message != null)
+			{
+				accountErrorText.textContent = data.message;
+				return;
+			}	
+			player = data.result;
+			authToken = response.headers.get("x-auth-token");
+			localStorage.setItem("af-token", authToken); // save local
+			console.log("Logged in as " + data.result.name + ", with token " + authToken);
+			
+			// hide login/register panels
+			accountErrorText.textContent = "";
+			accountLogin.style.display = "none";
+			accountPanel.style.display = "block";
+			accountPanel.innerText = "Welcome, " + player.name + "!";
+		}));
+	}
+	
+
+	_userRegister = new function() {
 
 	}
 
-	_userRegister = new function() {
+	_userUpdate = new function() {
 
 	}
 
 	return {
 		init: _init,
 		getOnlinePlayers: _getOnlinePlayers,
-		getActiveRooms: _getActiveRooms
+		getActiveRooms: _getActiveRooms,
+		userLogin: _userLogin
 	}
 }
