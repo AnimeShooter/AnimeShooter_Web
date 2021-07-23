@@ -147,7 +147,7 @@ let ASAPI = function ()  {
 			return;
 		}	
 		player = data.result;
-		//authToken = response.headers.get("x-auth-token");
+		authToken = response.headers.get("x-auth-token");
 		localStorage.setItem("as-token", authToken); // save local
 	
 		// hide login/register panels
