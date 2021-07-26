@@ -237,13 +237,14 @@ h1
 .account-col {
 	width: 100%;
 	position: relative;
+	margin-bottom: auto;
 }
 .account-form {
 	height: 100%;
 	border: 1px solid #591a65;
 	border-radius: 4px;
 	margin: 5px;
-	padding: 1px 20px 5px 12px;
+	padding: 1px 20px 20px 12px;
 }
 .account-form > p {
 	line-height: 26px;

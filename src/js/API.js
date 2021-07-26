@@ -23,14 +23,16 @@
 
 let ASAPI = function ()  {
 
-	let serverURI = "https://animeshooter.com/api/";
-	//let serverURI = "http://localhost:8088/";
+	//let serverURI = "https://animeshooter.com/api/";
+	let serverURI = "http://localhost:8088/";
 
 	let playerCountElement;
 	let playerPage;
 	let roomCountElement;
 	let roomPage;
 	let accountErrorText;
+	let accountToolErrorText;
+	let accountPkaResult;
 	let accountLogin;
 	let accountPanel;
 	let accountMsg;
@@ -44,6 +46,8 @@ let ASAPI = function ()  {
 		roomCountElement = document.getElementById("gs-roomcount");
 		roomPage = document.getElementById("online-rooms");
 		accountErrorText = document.getElementById("account-error");		
+		accountToolErrorText = document.getElementById("account-tool-error");
+		accountPkaResult = document.getElementById("account-pka-result");
 		accountLogin = document.getElementById("account-login");
 		accountPanel = document.getElementById("account-panel");
 		accountMsg = document.getElementById("account-msg");
@@ -171,6 +175,33 @@ let ASAPI = function ()  {
 		accountMsg.innerText = "";
 	}
 
+	_pkgUnpack = function(buffer) {
+		fetch(serverURI + "pkg/unpack?base64=true", {
+			method: "POST",
+			headers: {"Authorization": authToken },
+			body: buffer
+		})
+		.then(response => response.json()
+		.then(function (data) {
+			accountPkaResult.innerText = "";
+			if(data.message != null)
+			{
+				accountToolErrorText.textContent = data.message;	
+				return;
+			}
+			for(let i = 0; i < data.result.entries.length; i++)
+			{
+				var li = document.createElement("li");
+				li.textContent = data.result.entries[i];
+				accountPkaResult.appendChild(li);
+			}
+		}));
+	}
+
+	_pkgPack = function () {
+		
+	}
+
 	return {
 		init: _init,
 		getOnlinePlayers: _getOnlinePlayers,
@@ -178,6 +209,8 @@ let ASAPI = function ()  {
 		userLogin: _userLogin,
 		userAuth: _userAuth,
 		userRegister: _userRegister,
-		userLogout: _userLogout
+		userLogout: _userLogout,
+		pkgUnpack: _pkgUnpack,
+		pkgPack: _pkgPack
 	}
 }

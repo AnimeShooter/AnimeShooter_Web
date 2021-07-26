@@ -23,6 +23,7 @@
 	<meta property="og:image:width" content="600" />
 	<meta property="og:image:height" content="600" />
 	<meta property="og:image:alt" content="Ken with a bat" />
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8014088211781182" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="page-main">
@@ -166,6 +167,50 @@
 						<div class="account-col">
 							<input type="button" id="account-logout-button" value="Logout" style="float: right"/>
 							<p id="account-msg"></p>
+						</div>
+					</div>
+					<div class="page-inline-navbar">
+						<ul>
+							<li><span class="nav-item" onclick="selectAccountPage('account-settings')">Info</span></li>
+							<li><span class="nav-item" onclick="selectAccountPage('account-tools')">Tools</span></li>			
+						</ul>
+					</div>
+					<div class="page-account account-row" id="account-tools" style="display: block">
+						<div class="account-row">
+							<p id="account-tool-error"></p>
+							<div class="account-col">
+								<div class="account-form">
+									<h3>Pkg Unpack</h3>
+									<p>
+										<label>File: </label>
+										<input type="File" id="account-pkg-unpack-file"/><br/>
+										<input type="submit" value="Unpack" id="account-pkg-unpack-button"/>
+									</p>
+								</div>
+							</div>
+							<div class="account-col">
+								<div class="account-form">
+									<h3>Pkg Pack</h3>
+									<p>
+										<label>File: </label>
+										<input type="File" id="account-pkg-pack-file"/><br/>
+										<input type="submit" value="Pack" id="account-pkg-pack-button"/>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="account-row">
+							<div class="account-col">
+								TODO: List files and download on click.
+								<ul id="account-pka-result">
+									<li>UnkFile.lua</li>
+								</ul>	
+							</div>	
+						</div>
+					</div>
+					<div class="page-account" id="account-settings" style="display: hidden">
+						<div class="account-row">
+							<p>Account Settings</p>	
 						</div>
 					</div>
 				</div>	

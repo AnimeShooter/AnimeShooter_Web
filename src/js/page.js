@@ -12,6 +12,15 @@ document.getElementById("account-logout-button").onclick = function() {
     api.userLogout();
 }
 
+document.getElementById("account-pkg-unpack-button").onclick = function() {
+    let reader = new FileReader();
+    reader.onload = function(){
+        api.pkgUnpack(reader.result);
+    };
+    let file = document.getElementById("account-pkg-unpack-file").files[0];
+    reader.readAsArrayBuffer(file); 
+}
+
 /* Page */
 function selectPage(name)
 {
@@ -26,6 +35,13 @@ function selectOnlinePage(name)
     var onlinePages = document.getElementsByClassName("page-online");
     for(var i = 0; i  < onlinePages.length; i++)
         onlinePages[i].style.display = "none";
-    document.getElementById(name).style.display = "block"
+    document.getElementById(name).style.display = "block";
 }
 
+function selectAccountPage(name)
+{
+    var onlinePages = document.getElementsByClassName("page-account");
+    for(var i = 0; i  < onlinePages.length; i++)
+        onlinePages[i].style.display = "none";
+    document.getElementById(name).style.display = "block";
+}
