@@ -192,7 +192,15 @@ let ASAPI = function ()  {
 			for(let i = 0; i < data.result.entries.length; i++)
 			{
 				var li = document.createElement("li");
-				li.textContent = data.result.entries[i];
+				var a = document.createElement("a");
+				a.textContent = data.result.entries[i];
+				a.href = "#";
+				var input = document.createElement("input");
+				input.type = "hidden";
+				input.value = data.result.contents[i];
+				a.onclick = function() { console.log(atob(this.children[0].value)); }
+				a.appendChild(input)
+				li.appendChild(a);
 				accountPkaResult.appendChild(li);
 			}
 		}));

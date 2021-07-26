@@ -172,12 +172,19 @@
 					<div class="page-inline-navbar">
 						<ul>
 							<li><span class="nav-item" onclick="selectAccountPage('account-settings')">Info</span></li>
-							<li><span class="nav-item" onclick="selectAccountPage('account-tools')">Tools</span></li>			
+							<li><span class="nav-item" onclick="selectAccountPage('account-pkg-tools')">PKG-Tools</span></li>			
 						</ul>
 					</div>
-					<div class="page-account account-row" id="account-tools" style="display: block">
+					<div class="page-account" id="account-settings" style="display: none">
 						<div class="account-row">
-							<p id="account-tool-error"></p>
+							<p>Account Settings</p>	
+						</div>
+					</div>
+					<div class="page-account account-row" id="account-pkg-tools" style="display: block">
+						<div class="account-row">
+							<p id="account-tool-error" style="color: red"></p>
+						</div>
+						<div class="account-row">	
 							<div class="account-col">
 								<div class="account-form">
 									<h3>Pkg Unpack</h3>
@@ -201,16 +208,10 @@
 						</div>
 						<div class="account-row">
 							<div class="account-col">
-								TODO: List files and download on click.
 								<ul id="account-pka-result">
-									<li>UnkFile.lua</li>
+									<li>Files will show here after unpacking...</li>
 								</ul>	
 							</div>	
-						</div>
-					</div>
-					<div class="page-account" id="account-settings" style="display: hidden">
-						<div class="account-row">
-							<p>Account Settings</p>	
 						</div>
 					</div>
 				</div>	
