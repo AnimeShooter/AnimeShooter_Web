@@ -21,11 +21,6 @@ document.getElementById("account-pkg-unpack-button").onclick = function() {
     reader.readAsArrayBuffer(file); 
 }
 
-function downloadPkgContent(e)
-{
-    console.log(atob(e.children[0].value));
-}
-
 /* Page */
 function selectPage(name)
 {

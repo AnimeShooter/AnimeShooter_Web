@@ -23,8 +23,8 @@
 
 let ASAPI = function ()  {
 
-	//let serverURI = "https://animeshooter.com/api/";
-	let serverURI = "http://localhost:8088/";
+	let serverURI = "https://animeshooter.com/api/";
+	//let serverURI = "http://localhost:8088/";
 
 	let playerCountElement;
 	let playerPage;
@@ -194,12 +194,13 @@ let ASAPI = function ()  {
 				var li = document.createElement("li");
 				var a = document.createElement("a");
 				a.textContent = data.result.entries[i];
-				a.href = "#";
-				var input = document.createElement("input");
-				input.type = "hidden";
-				input.value = data.result.contents[i];
-				a.onclick = function() { console.log(atob(this.children[0].value)); }
-				a.appendChild(input)
+				a.href = "data:multipart/form-data;base64," + data.result.contents[i];
+				a.download = data.result.entries[i];
+				//var input = document.createElement("input");
+				//input.type = "hidden";
+				//input.value = data.result.contents[i];
+				//a.onclick = function() { console.log(atob(this.children[0].value)); }
+				//a.appendChild(input)
 				li.appendChild(a);
 				accountPkaResult.appendChild(li);
 			}
