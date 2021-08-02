@@ -71,7 +71,7 @@
 				</p>
 				<h2>Community</h2>
 				<p>
-					We hope you will have a good time fighting against or with online players, please feel free to join our <a href="https://discord.gg/sUbpE5Qm3n">Discord server</a> where you can hang around and meet new people.
+					We hope you will have a good time fighting with or against online players, please feel free to join our <a href="https://discord.gg/sUbpE5Qm3n">Discord server</a> where you can hang around and meet new people.
 				</p>
 			</div>
 			<!-- Online -->
@@ -95,7 +95,20 @@
 				</div>
 				<div class="page-online" id="online-leaderboard" style="display: none;">
 					<h2>Leaderboard</h2>	
-					<p>Soon enough there will be a leaderboard displaying the best players of the game!</p>
+					<table>
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Name</th>
+								<th>Experience</th>
+								<th>Kills</th>
+								<th>Deaths</th>
+							</tr>
+						</thead>
+						<tbody id="leaderboard-table">
+
+						</tbody>
+					</table>
 				</div>
 			</div>
 			<!-- How To (Connect) -->
@@ -241,6 +254,7 @@
 		// invoke all
 		api.getOnlinePlayers();
 		api.getActiveRooms();
+		api.getLeaderboard();
 
 		// add interval
 		setInterval(api.getOnlinePlayers, 30000);

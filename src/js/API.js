@@ -43,6 +43,7 @@ let ASAPI = function ()  {
 	_init = function() {
 		playerCountElement = document.getElementById("gs-playerscount");
 		playerPage = document.getElementById("online-players");
+		playerLeaderboard = document.getElementById("leaderboard-table");
 		roomCountElement = document.getElementById("gs-roomcount");
 		roomPage = document.getElementById("online-rooms");
 		accountErrorText = document.getElementById("account-error");		
@@ -57,7 +58,7 @@ let ASAPI = function ()  {
 		fetch(serverURI + "player/online")
 		.then(response => response.json()
 		.then(function(data) {
-			var players = data; //[{"name":"Ferib",experience:12,level:23,kills:69,deaths:1,meleeKills:0,gunKills:0,sniperKills:0,bombKills:0,gm:true}];
+			var players = data.result; //[{"name":"Ferib",experience:12,level:23,kills:69,deaths:1,meleeKills:0,gunKills:0,sniperKills:0,bombKills:0,gm:true}];
 			playerCountElement.textContent = players.length;
 			playerPage.innerText = ""; // clear
 			var ul = document.createElement("ul");
@@ -77,11 +78,54 @@ let ASAPI = function ()  {
 		}));	
 	}
 
+	_getLeaderboard = function() {
+		fetch(serverURI + "player/leaderboard")
+		.then(response => response.json()
+		.then(function(data) {
+			var players = [ { "rank": 1, "name": "Ferib", "experience": 12, "level": 23, "kills": 69, "deaths": 1, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 2, "name": "Siyika", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 3, "name": "pietvdstreet", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 4, "name": "Siyka", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 5, "name": "VACEfron", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 6, "name": "jarno", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 7, "name": "test15", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 8, "name": "test14", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 9, "name": "test13", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 10, "name": "Test12", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 11, "name": "Test11", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 12, "name": "Test19", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 13, "name": "Anecera", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 } ];
+			playerLeaderboard.innerText = ""; // clear
+			for(let i = 0; i < players.length; i++)
+			{
+				let tr = document.createElement("tr");
+
+				let td1 = document.createElement("td");
+				td1.textContent = players[i].rank;
+				tr.appendChild(td1);
+
+				let td2 = document.createElement("td");		
+				tr.appendChild(td2);
+
+				let lvlImg = document.createElement("img");
+				lvlImg.src = "/api/img/level/" +  (players[i].gm ? "gm" : players[i].level);
+				td2.appendChild(lvlImg);
+
+				let spanName = document.createElement("span");
+				spanName.textContent = players[i].name;
+				td2.appendChild(spanName);
+
+				let td3 = document.createElement("td");
+				td3.textContent = players[i].experience;
+				tr.appendChild(td3);
+
+				let td4 = document.createElement("td");
+				td4.textContent = players[i].kills;
+				tr.appendChild(td4);
+			
+				let td5 = document.createElement("td");
+				td5.textContent = players[i].deaths;
+				tr.appendChild(td5);
+
+				playerLeaderboard.appendChild(tr);
+			}
+			
+		}));	
+	}
+
 	_getActiveRooms = function() {	
 		fetch(serverURI + "room/")
 		.then(response => response.json()
 		.then(function (data) {
-			rooms = data;
+			rooms = data.result;
 			roomCountElement.textContent = rooms.length;
 			roomPage.innerText = ""; // clear
 			var roomRow = document.createElement("div"); // parent
@@ -214,6 +258,7 @@ let ASAPI = function ()  {
 	return {
 		init: _init,
 		getOnlinePlayers: _getOnlinePlayers,
+		getLeaderboard: _getLeaderboard,
 		getActiveRooms: _getActiveRooms,
 		userLogin: _userLogin,
 		userAuth: _userAuth,
