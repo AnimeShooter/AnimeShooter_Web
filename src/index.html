@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head lang="en-US">
+<html lang="en-US"> 
+<head>
 	<title>AnimeShooter</title>
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.ico">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.ico">	
@@ -26,7 +26,7 @@
 <body>
 	<div class="page-main">
 		<div class="page-header">	
-			<img src="img/ken.png" width="152px" height="180px" style="float:left; margin-left: -35px;"/>
+			<img src="img/ken.png" width="152" height="180" alt="AnimeShooter logo" style="float:left; margin-left: -35px;"/>
 			<!-- <img src="img/hanna_top.png" width="135px" height="180px" style="float:left; margin-left: 20px"/>
 			<img src="img/hanna_bottom.png" width="135px" height="55px" style="float:left;position: relative;display: block;top: 180px;left: -135px;"> -->
 			<nav class="page-navbar">
@@ -48,7 +48,7 @@
 				<h1>Welcome to AnimeShooter!<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
 				<div class="carousel">
 					<div class="carousel-item">
-						<img src="img/test.jpg" alt="AnimeShooter Gameplay" width="1280" height="720" />
+						<img src="img/test.jpg" alt="AnimeShooter Gameplay screenshot" width="1280" height="720" />
 					</div>
 				</div>
 				<p>
@@ -62,7 +62,7 @@
 				</p>
 				<h2>Register</h2>
 				<p>
-					To get started, you must create an account at our website. Once created, you will be guided with instructions to download and install the game and how you can connect to our game servers.
+					To get started, you must <a onclick="selectPage('Account')" href="#">create an account</a> at our website. Once created, you will be guided with instructions to <a href="#" onclick="selectPage('Howto')">download and install</a> the game and how you can connect to our game servers.
 				</p>
 				<p>
 					Please keep in mind that we are providing our very own game servers that come with their very own database. This means all progress from the original game is NOT there. To obtain in-game items you can use in-game currencies or real-life currencies to purchase in-game goods.
@@ -113,13 +113,13 @@
 			<div class="page" id="Howto" style="display: none">
 				<h1>How to Connect<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
 				<p>
-					<a href="download/QPangSetup.exe"><img style="float:right;" src="img/download-qpang.png"></a>
+					<a href="download/QPangSetup.exe"><img style="float:right;" src="img/download-qpang.png" alt="Installer download button" width="184" height="90"></a>
 					Before you can play the game you must first download and install the game files, simply click the download button below to download the original QPang installer.
 					Next you want to open the installer and follow the installation wizard. After that is done you will need to download our custom launcher.
 				</p>	
 				<h2>Launcher</h2>
 				<p>
-					<a href="download/QPangLauncher.exe"><img style="float:right;" src="img/download-launcher.png"></a>
+					<a href="download/QPangLauncher.exe"><img style="float:right;" src="img/download-launcher.png" alt="Launcher download button" width="184" height="90"></a>
 					The game is configured to connect to the original game servers out of the box, therefore we need to ship a custom launcher that forces the connection to our very own game servers!
 				</p>
 				<p>
@@ -238,9 +238,9 @@
 </body>
 
 <!-- This is where the magic happens! -->
-<script src="js/page.js"></script>
-<script src="js/network.js"></script>
-<script src="js/API.js"></script>
+<script defer src="js/page.js"></script>
+<script defer src="js/network.js"></script>
+<script defer src="js/API.js"></script>
 
 <script>
 	api = null;

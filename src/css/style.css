@@ -150,6 +150,10 @@ h1
 	margin-left: 26px;
 }
 
+.page-blog > p {
+	line-height: 21px;
+}
+
 /* Page elements */
 .carousel {
 	width: 600px;
