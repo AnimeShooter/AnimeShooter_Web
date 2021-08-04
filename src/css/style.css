@@ -97,6 +97,15 @@ h1
 {
 	color: cyan;
 }
+.nav-item > a
+{
+	color: honeydew!important;
+	text-decoration: none;
+}
+.nav-item > a:hover
+{
+	color: rgb(229, 255, 0)!important;
+}
 .page-console
 {
 	padding-left: 180px;
