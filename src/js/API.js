@@ -58,7 +58,7 @@ let ASAPI = function ()  {
 		fetch(serverURI + "player/online")
 		.then(response => response.json()
 		.then(function(data) {
-			var players = data.result; //[{"name":"Ferib",experience:12,level:23,kills:69,deaths:1,meleeKills:0,gunKills:0,sniperKills:0,bombKills:0,gm:true}];
+			var players = data.result; 
 			playerCountElement.textContent = players.length;
 			playerPage.innerText = ""; // clear
 			var ul = document.createElement("ul");
@@ -67,6 +67,9 @@ let ASAPI = function ()  {
 				var li = document.createElement("li");
 				var img = document.createElement("img");
 				img.src = "/api/img/level/" + (players[i].gm ? "gm" : players[i].level);
+				img.alt = "lvl " + players[i].level;
+				img.width = 19;
+				img.height = 19;
 				var span = document.createElement("span");
 				span.textContent = players[i].name;
 
@@ -82,7 +85,7 @@ let ASAPI = function ()  {
 		fetch(serverURI + "player/leaderboard")
 		.then(response => response.json()
 		.then(function(data) {
-			var players = data.result; // [ { "rank": 1, "name": "Ferib", "experience": 12, "level": 23, "kills": 69, "deaths": 1, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 2, "name": "Siyika", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 3, "name": "pietvdstreet", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 4, "name": "Siyka", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 5, "name": "VACEfron", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 6, "name": "jarno", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 7, "name": "test15", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 8, "name": "test14", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 9, "name": "test13", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 10, "name": "Test12", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 11, "name": "Test11", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 12, "name": "Test19", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 }, { "rank": 13, "name": "Anecera", "experience": 0, "level": 1, "kills": 0, "deaths": 0, "meleeKills": 0, "gunKills": 0, "launcherKills": 0, "bombKills": 0 } ];
+			var players = data.result; 
 			playerLeaderboard.innerText = ""; // clear
 			for(let i = 0; i < players.length; i++)
 			{
@@ -97,6 +100,9 @@ let ASAPI = function ()  {
 
 				let lvlImg = document.createElement("img");
 				lvlImg.src = "/api/img/level/" +  (players[i].gm ? "gm" : players[i].level);
+				lvlImg.alt = "lvl " + players[i].level;
+				lvlImg.width = 19;
+				lvlImg.height = 19;
 				td2.appendChild(lvlImg);
 
 				let spanName = document.createElement("span");
