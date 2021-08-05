@@ -188,7 +188,8 @@ let ASAPI = function ()  {
 	_userUpdate = function(oldPw, newPw) {
 		fetch(serverURI + "user/update", {
 			method: "POST",
-			body: JSON.stringify({"OldPassword": oldPw, "NewPassword": newPw })
+			body: JSON.stringify({"OldPassword": oldPw, "NewPassword": newPw }),
+			headers: { "Authorization": authToken }
 		}).then(response => response.json()
 		.then(function(data)
 		{
