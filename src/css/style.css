@@ -138,13 +138,13 @@ h1
 	min-height: 620px;
 }
 
-.page-online > ul {
+.page-online ul {
 	list-style: none;
 	list-style: none;
 	color: black;
 	padding-left: 10px;
 }
-.page-online > ul > li {
+.page-online ul > li {
 	border-radius: 15px 0 0 0;
 	background: linear-gradient(45deg, #00000020, #00000000 );
 	line-height: 19px; 
@@ -152,17 +152,17 @@ h1
 	width: 32%;
 	display: inline-block;
 }
-.page-online > ul > li > img {
+.page-online ul > li > img {
 	position: absolute;	
 }
-.page-online > ul > li > span {
+.page-online ul > li > span {
 	margin-left: 26px;
 }
 
-.page-blog > article > p {
+.page-blog p {
 	line-height: 21px;
 }
-.page-blog > article > p > img {
+.page-blog p > img {
 	display: block;
 	margin: auto;
 	position: relative;
@@ -263,10 +263,10 @@ h1
 	margin: 5px;
 	padding: 1px 20px 20px 12px;
 }
-.account-form > p {
+.account-form p {
 	line-height: 26px;
 }
-.account-form > p > input {
+.account-form p > input {
 	float: right;
 }
 
@@ -319,7 +319,7 @@ tr:nth-child(even) {
 	.carousel  {
 		width: auto;
 	}
-	.page-online > ul > li {
+	.page-online ul > li {
 		width: 100%;
 	}
 }
