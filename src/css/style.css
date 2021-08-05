@@ -166,8 +166,65 @@ h1
 	display: block;
 	margin: auto;
 	position: relative;
+	max-width: 100%;
+	height: 100%;
 }
 
+/* Blog Content */
+.blog-list {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.blog-item {
+	display: flex;
+	position: relative;
+	text-decoration: none;
+	margin: auto;
+	height: 140px;
+	transition: .2s linear;
+	color: #6f0000;
+	flex-wrap: nowrap;
+	padding-right: 40px; /* sloppy fix */
+}
+.blog-item:hover {
+	color: #591a65;
+}
+.blog-image {
+	flex: 0 0 25%;
+	max-width: 25%;	
+	position: relative;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+.blog-image > img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	margin: auto;
+	position: relative;
+	border-radius: 5px;
+}
+.blog-info {
+	flex: 0 0 75%;
+	max-width: 75%;
+	position: relative;
+	padding-left: 21px;
+	padding-right: 12px;	
+}
+.blog-info h2 {
+	margin-top: 8px;
+	margin-bottom: 0px;
+}
+.blog-date {
+	font-style: italic;
+	color: gray;
+	font-size: 12px;
+}
+.blog-info-text {
+	padding-top: 18px;
+	line-height: 22px;
+}
 /* Page elements */
 .carousel {
 	width: 600px;
