@@ -8,6 +8,10 @@ document.getElementById("account-create-button").onclick = function() {
                     document.getElementById("account-create-password").value); // TODO: check second PW
 }
 
+document.getElementById("account-update-button").onclick = function() {
+    api.userUpdate(document.getElementById("account-old-password").value, document.getElementById("account-new-password").value); // TOOD check seconds pw
+}
+
 document.getElementById("account-logout-button").onclick = function() {
     api.userLogout();
 }

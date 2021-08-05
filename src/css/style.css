@@ -186,7 +186,7 @@ h1
 	position: relative;
 	text-decoration: none;
 	margin: auto;
-	height: 140px;
+	height: auto;
 	transition: .2s linear;
 	color: #6f0000;
 	flex-wrap: nowrap;
@@ -382,5 +382,14 @@ tr:nth-child(even) {
 	}
 	.page-online ul > li {
 		width: 100%;
+	}
+	.blog-image {
+		display: none;
+	}
+	.blog-info {
+		flex: 0 0 100%;
+		max-width: 100%;
+		padding-left: 0;
+		padding-right: 0;
 	}
 }

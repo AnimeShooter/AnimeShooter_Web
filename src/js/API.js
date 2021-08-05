@@ -52,6 +52,7 @@ let ASAPI = function ()  {
 		accountLogin = document.getElementById("account-login");
 		accountPanel = document.getElementById("account-panel");
 		accountMsg = document.getElementById("account-msg");
+		accountUpdateErrorText =  document.getElementById("account-update-error");
 	}
 
 	_getOnlinePlayers = function() {
@@ -184,6 +185,22 @@ let ASAPI = function ()  {
 		.then(data => _handleLogin(data, response)));
 	}
 
+	_userUpdate = function(oldPw, newPw) {
+		fetch(serverURI + "user/update", {
+			method: "POST",
+			body: JSON.stringify({"OldPassword": oldPw, "NewPassword": newPw })
+		}).then(response => response.json()
+		.then(function(data)
+		{
+			if(data.message != null)
+			{
+				accountUpdateErrorText.textContent = data.message;
+				return;
+			}
+			accountUpdateErrorText.textContent = "Unknown error.";
+		}));
+	}
+
 	_userAuth = function(token) {
 		fetch(serverURI + "user/info", {
 			headers: { "Authorization": token }
@@ -269,6 +286,7 @@ let ASAPI = function ()  {
 		userLogin: _userLogin,
 		userAuth: _userAuth,
 		userRegister: _userRegister,
+		userUpdate: _userUpdate,
 		userLogout: _userLogout,
 		pkgUnpack: _pkgUnpack,
 		pkgPack: _pkgPack
