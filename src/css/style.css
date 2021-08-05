@@ -18,6 +18,11 @@ h1
 	font-family: "Bourdan", sans-serif;
 }
 
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 @font-face {
 	font-family: "Dripping";
 	src: url("../font/ADrippingMarker-Ddw1.ttf") format("truetype");
@@ -185,7 +190,6 @@ h1
 	transition: .2s linear;
 	color: #6f0000;
 	flex-wrap: nowrap;
-	padding-right: 40px; /* sloppy fix */
 }
 .blog-item:hover {
 	color: #591a65;
