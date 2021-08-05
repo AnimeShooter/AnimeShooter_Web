@@ -159,8 +159,13 @@ h1
 	margin-left: 26px;
 }
 
-.page-blog > p {
+.page-blog > article > p {
 	line-height: 21px;
+}
+.page-blog > article > p > img {
+	display: block;
+	margin: auto;
+	position: relative;
 }
 
 /* Page elements */

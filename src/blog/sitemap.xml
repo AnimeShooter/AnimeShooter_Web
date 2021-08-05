@@ -5,8 +5,10 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 	<url>
-		<loc>https://animeshooter.com/</loc>
-		<lastmod>2021-08-04T21:52:07+01:00</lastmod>
+		<loc>https://blog.animeshooter.com/</loc>
+		<lastmod>2021-08-05T05:52:37+01:00</lastmod>
 		<priority>0.50</priority>
 	</url>
+	<!-- Blog Posts -->
+	
 </urlset>
