@@ -10,5 +10,9 @@
 		<priority>0.50</priority>
 	</url>
 	<!-- Blog Posts -->
-	
+	<url>
+		<loc>https://blog.animeshooter.com/article/Developing_a_Private_Game_Server.html</loc>
+		<lastmod>2021-08-06T16:43:37+01:00</lastmod>
+		<priority>0.75</priority>
+	</url>
 </urlset>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US"> 
+<head>
+	<title>Blog: Developing a Private Game Server</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.ico">	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="About a couple of months ago, I started developing a private server for a popular game. While I had some excellent progress making a server from scratch, I ended up getting a private investigator at my doorstep, which handed me over a cease and desist letter. It was at this moment I knew, I fucked up.	" />
+	<meta name="keywords" content="Server emulator, Download Qpang, Download MangaFighter, Game Server, Shooter Game, Anime, Anime shooter game, Multiplayer, FPS, Shooter, anime, cartoon" />
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+	<link href="https://animeshooter.com/css/style.css" type="text/css" rel="stylesheet"/>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans" rel="stylesheet">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Developing a Private Game Server" />
+	<meta property="og:type" content="profile" />
+	<meta property="og:description" content="About a couple of months ago, I started developing a private server for a popular game. While I had some excellent progress making a server from scratch, I ended up getting a private investigator at my doorstep, which handed me over a cease and desist letter. It was at this moment I knew, I fucked up.	" />
+	<meta property="og:url" content="https://blog.animeshooter.com/" />
+	<meta property="og:image" content="https://blog.animeshooter.com/img/thumbnail/1_introduction.png" />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="600" />
+	<meta property="og:image:height" content="600" />
+	<meta property="og:image:alt" content="Ken with a bat" />
+</head>
+<body>
+	<div class="page-main">
+		<div class="page-header">	
+			<img src="https://animeshooter.com/img/ken.png" width="152" height="180" alt="AnimeShooter logo" style="float:left; margin-left: -35px;"/>
+			<nav class="page-navbar">
+				<ul>
+					<li><span class="nav-item"><a href="https://animeshooter.com/">Home</a></span></li>
+					<li><span class="nav-item"><a href="https://blog.animeshooter.com/">Blog</a></span></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="page-contents">
+			<!-- Blog Page -->
+			<div class="page page-blog" id="Home" style="display: block">
+				<article>
+				<header>
+				<h1>AnimeShooter Blog<span class="article-note">01/09/2021</span></h1>
+				<h2>Developing a Private Game Server</h2>
+				<p>
+					About a couple of months ago, I started developing a private server for a popular game. While I had some excellent progress making a server from scratch, I ended up getting a <a href="https://kotaku.com/blizzard-sends-cease-and-desists-to-diablo-ii-resurrec-1846977935">private investigator at my doorstep, which handed me over a cease and desist letter</a>. It was at that moment I knew, I fucked up.	
+				</p>
+				</header>
+				<p>
+					Despite all the hard work I put into the project, it would never be able to see the daylight, or at least not without facing a lawsuit. But instead of throwing all my work in the garbage, I have decided to fork the core components of my project and have them re-used in my new private server project, AnimeShooter!
+				</p>
+				<h3>What is AnimeShooter?</h3>
+				<p>
+					Before I tell you what AnimeShooter is, let me tell you what MangaFigher is. MangaFigher <i>was</i> a Korean multiplayer online third-person shooter game developed by 'OnNet' and hosted by 'GamesCampus'. There was also another variant called 'Qpang' which was hosted by 'Realfogs', Qpang was most popular in The Netherlands and was later on translated to English and German.
+				</p>	
+				<p>
+					<img src="/img/blog/1_qpang_720_340.jpg" alt="qpang login screen" width="720" height="340" />
+				</p>
+				<p>
+					With that said, AnimeShooter is a private server based on the Qpang game client. The original games MangaFighter and Qpang have died in 2010 and 2013 accordingly. My focus here is to resurrect the old game while learning a thing or two about game development, I noticed that big gaming companies do this too, so why not rip off some people myself and get a few bucks along the way... except, I don't have the source code of the game nor do I charge 50 bucks for a copy <i>(AnimeShooter will be free 2 play)</i>.
+				</p>
+				<h3>Reversing the game</h3>
+				<p>
+					Developing a game server for a game without any technical understanding of how the game works is nearly impossible. Therefore we need to get a very good understanding of how exactly the game works and, most importantly, figure out how the network communication works. 
+				</p>
+				<h4>Network Protocol</h4>
+				<p>
+					Reverse engineering the network protocol of the game is the most important step to succeed in developing a private game server for whatever game you want. In our case, we have reversed the Qpang client and found out the game uses both TCP and UDP. For those who are not familiar with UDP, it's a real pain in the ass. 
+				</p>
+				<p>
+					To be more specific, the UDP is implemented using the openTNL library, a library that doesn't seem to be very popular, yet I managed to find a <a href="https://github.com/Blumster/TNL.NET/">C# implementation of the openTNL library</a> <i>(thanks, Blumster!)</i>, which we will be using later on.
+				</p>
+				<h4>Game Resources</h4>
+				<p>
+					One of the things I hope to do after creating a working game server is to add new content to the game. Most games store their resources on disk where they are ready to be used whenever the game gets launched. Once a game launches it will almost always load these resources into memory and then proceed to use those resources to construct their virtual environment for the actual game. 
+				</p>
+				<p>
+					<img src="/img/blog/1_resources.png" alt="qpang resources example" width="723" height="420" />
+				</p>
+				<p>
+					These resources are often compressed and/or packed to minimize their disk usage, which means the game has to decompress and/or unpack the resources first. Some games tend to use custom packing techniques while others prefer using a more wide-used compression algorithm.
+				</p>
+				<p>
+					Either way, we will have to figure out what kind of compression/packing is used to modify the resources that came shipped with our game. We will soon see how Qpang loads textures, map objects, scripts, and configuration files through different algorithms.
+				</p>
+
+				<h2>The Game Server</h2>
+				<p>
+					After most of the reversing is done and a decent amount of knowledge is obtained we can start developing the actual game server. Qpang used to have both PvP and PvE content, the PvP content is just playing against each other in a handful of different game modes using a wide variety of weapons, clothes, and characters. 	
+				</p>
+				<p>
+					PvE is a different story, here the players had to team up with a maximum amount of 4 players while facing three different stages of the game. Each stage has its unique parkour, enemies, and challenges that must be solved before being able to progress to the next objective. 
+				</p>
+				<p>
+					We noticed most of the PvE content is stored inside the client. Hopefully, we will be able to extract and reconstruct the original PvE content and provide you with a nostalgic PvE gameplay. But for now, let's focus on the PvP and see how that works out.
+				</p>
+				<p>
+					The server itself is programmed in C# but will be kept closed-source. However, we do plan on open-sourcing a variety of tools created during our research and we will provide a rich set of Rest APIs. 
+				</p>
+				<h2>Anti-Cheating</h2>
+				<p>
+					Just to spice things up a little more I also decided to throw in anti-cheating. I have been active in a rich variety of so-called 'cheating'  communities that focus on automating gameplay, glitching, exploiting game mechanics, developing cheats, reversing anti-cheating, defeating anti-debugging, duplicating in-game items, and a lot of other things.
+				</p>
+				<p>
+					Therefore it would be nice to switch sides and figure out techniques to defend against such things based on the knowledge I have gathered over the years.
+				</p>
+
+				<h2>What is next?</h2>
+				<p>
+					This is it, for now. I hope you have obtained a good overview of what is yet to come and hopefully you will be around to see the evolution of AnimeShooter, turning into an interactive and educative project for both of us!
+					<br/>
+					<i>~ Our Discord: <a href="https://discord.gg/dB6bpUedHm">https://discord.gg/dB6bpUedHm</a></i>
+				</p>
+				</article>
+			</div>	
+		</div>
+		<div class="page-footer">
+			Qpang nor MangaFighter are not owned by me. This project is not affiliated with Realfogs, OnNet or GamesCampus in any way.
+		</div>
+	</div>
+</body>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9KV3VX3NXF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9KV3VX3NXF');
+</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</html>
