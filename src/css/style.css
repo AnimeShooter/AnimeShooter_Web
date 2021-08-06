@@ -190,16 +190,17 @@ h1
 	transition: .2s linear;
 	color: #6f0000;
 	flex-wrap: nowrap;
+	border-radius: 7px;
 }
 .blog-item:hover {
 	color: #591a65;
+	background: #00000010;
 }
 .blog-image {
 	flex: 0 0 25%;
 	max-width: 25%;	
 	position: relative;
-	padding-left: 8px;
-	padding-right: 8px;
+	padding-right: 16px;
 }
 .blog-image > img {
 	width: 100%;
@@ -207,7 +208,7 @@ h1
 	display: block;
 	margin: auto;
 	position: relative;
-	border-radius: 5px;
+	border-radius: 7px;
 }
 .blog-info {
 	flex: 0 0 75%;
