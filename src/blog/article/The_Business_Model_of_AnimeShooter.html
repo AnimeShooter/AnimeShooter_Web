@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-US"> 
+<head>
+	<title>Blog: The Business Model of AnimeShooter</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.ico">	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="Developing a video game is one thing, making money out of it is a whole different thing. The gaming industry is big business, generating over $177 billion in 2020 according to Newzoo. But the real question is, how much does game development cost? What does it cost to update and maintain a game? And much money will be left over as profit?" />
+	<meta name="keywords" content="Server emulator, Download Qpang, Download MangaFighter, Game Server, Shooter Game, Anime, Anime shooter game, Multiplayer, FPS, Shooter, anime, cartoon" />
+	<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+	<link href="https://animeshooter.com/css/style.css" type="text/css" rel="stylesheet"/>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans" rel="stylesheet">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="The Business Model of AnimeShooter" />
+	<meta property="og:type" content="profile" />
+	<meta property="og:description" content="Developing a video game is one thing, making money out of it is a whole different thing. The gaming industry is big business, generating over $177 billion in 2020 according to Newzoo. But the real question is, how much does game development cost? What does it cost to update and maintain a game? And much money will be left over as profit?" />
+	<meta property="og:url" content="https://blog.animeshooter.com/" />
+	<meta property="og:image" content="https://blog.animeshooter.com/img/thumbnail/2_businessmodel.png" />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="600" />
+	<meta property="og:image:height" content="600" />
+	<meta property="og:image:alt" content="Ken with a bat" />
+</head>
+<body>
+	<div class="page-main">
+		<div class="page-header">	
+			<img src="https://animeshooter.com/img/ken.png" width="152" height="180" alt="AnimeShooter logo" style="float:left; margin-left: -35px;"/>
+			<nav class="page-navbar">
+				<ul>
+					<li><span class="nav-item"><a href="https://animeshooter.com/">Home</a></span></li>
+					<li><span class="nav-item"><a href="https://blog.animeshooter.com/">Blog</a></span></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="page-contents">
+			<!-- Blog Page -->
+			<div class="page page-blog" id="Home" style="display: block">
+				<article>
+				<header>
+				<h1>AnimeShooter Blog<span class="article-note">10/08/2021<br/>~ Ferib Hellscream</span></h1>
+				<h2>The Business Model of AnimeShooter</h2>
+				<p>
+					Developing a video game is one thing, making money out of it is a whole different thing. The gaming industry is big business, generating over $177 billion in 2020 <a href="https://newzoo.com/insights/articles/global-games-market-to-generate-175-8-billion-in-2021-despite-a-slight-decline-the-market-is-on-track-to-surpass-200-billion-in-2023/">according to Newzoo</a>. But the real question is, <b>how much does game development cost? What does it cost to update and maintain a game? And much money will be left over as profit?</b>	
+				</p>
+				</header>
+				<p>
+					<img alt="Newzoo global market games" src="/img/blog/2_newzoo_games_market.png" width="1024" height="576"/>
+				</p>
+				<p>
+					Honestly, I have no fucking clue. I am just ripping off an existing game and making a private game server in my mom's basement. Since my time has no value, developing the game server is nearly free. The only cost I have is a &euro;4/month Linux server to host my game server and a &euro;0.99/year (tax excl.) for the domain name, thanks to a promotion. I assume the .com domain promotion is a one-time thing, next year I expect them to charge me the full 12-ish euro.
+				</p>	
+				<h3>How much do you pay??</h3>
+				<p>
+					But yes, you heard that correctly. I only pay &euro;3.99 (tax inc.) a month for a basic Linux VPS. And (soon) another &euro;11.99 annually for the AnimeShooter.com domain. 
+				</p>
+				<p>
+					It is no coincidence that the price is this low as my main focus was to use non-commercial solutions. The following technologies were used:
+					<ul>
+						<li>MariaDB <i><a href="https://mariadb.com/kb/en/licensing-faq/">(GPLv2)</a></i></li>
+						<li>phpMyAdmin <i><a href="https://www.phpmyadmin.net/license/">(GPLv2)</a></i></li>
+						<li>Ubuntu 18.04 <i>(Linux, <a href="https://github.com/torvalds/linux/blob/master/COPYING">GPLv2)</a></i></li>
+						<li>Nginx <i><a href="http://nginx.org/LICENSE">(FreeBSD)</a></i></li>
+					</ul>
+				</p>
+				<p>
+					Since all of the above technologies are open-source and are free of charge, I do not have to pay any additional money other than renting physical hardware that will be used for hosting my Linux OS. My Virtual Private Server (VPS) is part of one big dedicate computer. These big computers have dedicated hardware that is used to split its resources into multiple virtual instances, allowing host providers to create custom Virtual Private Servers which they can then rent to customers like me.	
+				</p>
+				<h3>Is it powerful enough?</h3>
+				<p>
+					Depends, as of right now I do not expect many players on my server, or at least not at the same time.  Let's not forget that the original game used to be peer-to-peer, meaning that the real bandwidth usage does not come from game rooms, but from players logging into the game lobbies while looking for matchmaking.
+				</p>
+				<p>
+					Since peer-to-peer games are very insecure from a cheating perspective, I do not plan on copying that behavior. Instead, I will create a client-to-server game room, where the server relays the traffic sent by the game client. Additionally, I will add some optional server-side computations to verify if the client is sending legitimate data. For example, my server will keep track of objects server-side to prevent teleporting, speed hacking, and other game-breaking exploitations.
+				</p>
+				<p>
+					With that being said I doubt my &euro;4/month Linux VPS will be able to handle all of this, but only time will tell us how it works out. The game servers are capable to perform horizontal scaling, so I am looking forward to putting that to use.
+				</p>
+				<h3>Where does the money come from?</h3>
+				<p>
+					Right now, it's all coming from my own pocket. I do plan on adding some kind of webshop where people can donate money to the project and obtain cosmetic in-game items. Making the game a pay-to-win is not something I want to do as I aim at a very low-cost expense combined with the fact that this is an educational hobby project for me.
+				</p>
+				<p>
+					For those who want to donate money already, you can check out <a href="https://github.com/sponsors/ferib">my GitHub profile</a>, having around 3 people donating me $2/month should keep the game servers alive.
+				</p>
+				<h4>Monetizing our platform</h4>
+				<p>
+					Unfortunately, we do have to make money one way another, this will be done both passively with ads and through in-game purchases. I know how annoying ads are and how pay-to-win ruins the gameplay, but I will do my <b>very best</b> to reduce this as much as possible.
+				</p>
+				<p>
+					The truth is that any organization needs money to make progress, including AnimeShooter. These earning will be spent on art, hosting, and some other stuff I may need to improve the AnimeShooter.
+				</p>
+				<h3>What happens if no one donates?</h3>
+				<p>
+					Worst case scenario, I end up paying 48 euro (12x &euro;4/month) a year for the server and 12 euro for the domain name, giving me a total cost of only 60 euro each year. Continuing like that for the next 5 years will only lose me 300 euros for a project that has high potentials and lots of educational resources. So hopefully you learned something along the way ;)
+				</p>
+				<h3>Conclusion</h3>
+				<p>
+					With that being said, I hope my 'business model' is clear to all of you. I am not here to empty your pockets, instead, I am here to tease your brain and hopefully learn you a thing or two in an interactive project!
+				</p>
+				</article>
+			</div>	
+		</div>
+		<div class="page-footer">
+			Qpang nor MangaFighter are not owned by me. This project is not affiliated with Realfogs, OnNet or GamesCampus in any way.
+		</div>
+	</div>
+</body>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NF8R2FQS0E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NF8R2FQS0E');
+</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</html>
