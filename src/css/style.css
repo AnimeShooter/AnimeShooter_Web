@@ -366,6 +366,10 @@ tr:nth-child(even) {
 	.page-footer {
 		padding: 0px 3px 20px 3px;
 	}
+	.page-navbar {
+		width: 100%;
+		position: absolute;
+	}
 	.page-navbar > ul > li {
 		display: block;
 	}
