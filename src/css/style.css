@@ -46,10 +46,12 @@ h1
 }
 .page-navbar
 {
-	width: 100%;
+	width: 820px;
 	padding: 0;
 	flex-direction: row;
 	color: ghostwhite;
+	z-index: 1;
+	position: fixed;
 }
 .page-navbar > ul
 {
@@ -63,6 +65,8 @@ h1
 	padding-left: 18px;
 	border-radius: 0px 0px 12px 12px;
     	padding-bottom: 3px;
+	box-shadow: 2px 2px 7px #00000069;
+	margin-right: 16px;
 }
 .page-navbar > ul > li
 {
