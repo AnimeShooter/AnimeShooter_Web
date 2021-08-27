@@ -23,8 +23,8 @@
 
 let WIKIAPI = function ()  {
 
-	//let serverURI = "https://animeshooter.com/api/";
-	let serverURI = "http://localhost:8088/";
+	let serverURI = "https://animeshooter.com/api/";
+	//let serverURI = "http://localhost:8088/";
 
 	skillsList = document.getElementById("skills-list");
 
