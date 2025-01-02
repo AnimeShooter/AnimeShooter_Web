@@ -28,7 +28,7 @@
 		<div class="page-header">	
 			<!-- <img src="img/ken.png" width="152" height="180" alt="AnimeShooter logo" style="float:left; margin-left: -35px;"/>-->
 			<img src="img/hanna_top.png" width="135px" height="180px" style="float:left; margin-left: 20px"/>
-			<img src="img/hanna_bottom.png" width="135px" height="55px" style="float:left;position: relative;display: block;top: 180px;left: -135px;">
+			<img src="img/hanna_bottom.png" width="135px" height="55px" style="float:left;position: relative;display: block;top: 180px;left: -135px;z-index: 1;">
 			<nav class="page-navbar">
 				<ul>
 					<li><span class="nav-item" onclick="selectPage('Home')">Home</span></li>
@@ -139,34 +139,26 @@
 						<header>
 						<h1>How to Connect<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
 						<p>
-							<a href="download/QPangSetup.exe"><img style="float:right;" src="img/download-qpang.png" alt="Installer download button" width="184" height="90"></a>
-							Before you can play the game you must first download and install the game files, simply click the download button below to download the original QPang installer.
-							Next you want to open the installer and follow the installation wizard. After that is done you will need to download our custom launcher.
+							<a href="./download/QPangSetup.exe"><img style="float:right;" src="./img/download-qpang.png" alt="Installer download button" width="184" height="90"></a>
+							<ol>
+								<li>Download and run <a href="./download/QPangSetup.exe">QPangSetup.exe</a></li>
+								<li>Take note where Qpang gets installed</li>
+								<li>Download <a href="./download/QpangBin.zip">QPangBin.zip</a> and extract in Qpang folder <i>(default path: <code>C:\Program Files (x86)\RealFogs\QPang\</code>)</i></li>
+								<li>Done, now launch game with run <code>QPangBin_Launcher.bat</code></li>
+							</ol>
 						</p>	
 						</header>
-						<h2>Launcher</h2>
+						<h2>Path Files</h2>
 						<p>
-							<a href="download/QPangLauncher.exe"><img style="float:right;" src="img/download-launcher.png" alt="Launcher download button" width="184" height="90"></a>
-							The game is configured to connect to the original game servers out of the box, therefore we need to ship a custom launcher that forces the connection to our very own game servers!
+							<a href="./download/QPangBin.zip"><img style="float:right;" src="./img/download-launcher.png" alt="Launcher download button" width="184" height="90"></a>
+							The original game still houses HShield (anti-cheat) and thus <b>must be modified</b> to get the game working. To do so, <a href="./download/QPangLauncher.exe">QPangBin.zip</a> is provided with already modified game files.
 						</p>
 						<p>
-							Not only do we re-configure the game connection, we also provide a bunch of patches for the game to tweak/modify all kinds of settings, configurations and even behavior of the game. More info on that follows soon.
+							For those who have trust issues and prefer to patch the files themselfs, you can do so using the <a href="https://github.com/AnimeShooter/QPangMiniLauncher">QPangMiniLauncher GitHub Repo</a>. The list of patches to be applied can be found in <a href="https://github.com/AnimeShooter/QPangMiniLauncher/blob/master/Program.cs#L16">QPangMiniLauncher's Program.cs</a>
 						</p>
+						<h2>Next Steps</h2>
 						<p>
-							On top of that, our loader also injects a small anti-cheating module inside the game. This module is responsible for two things, detecting cheats and creating a so-called 'heartbeat'. For more information, check out <a href="#">how we detect cheats</a> and <a href="#">what our anti-cheating does</a>.
-						</p>
-						<h2>Custom Patches</h2>
-						<p>
-							Here at AnimeShooter, we focus on two things thing; creating the nostalgic 2012 gaming experience but at the same time, we also want to provide a new kind of gameplay that was originally not intended. Creating the original gameplay is achieved by emulation the server as close to the original server <i>(for as far as we know)</i>.
-						</p>
-						<p>
-							The '<i>providing new kinds of gameplay</i>' is done by modifying the original game code, resulting in behavior that was never intended. Behavior such as having unlimited landmines with super-fast movement speeds. Or triple movement speed but only with melee.
-						</p>
-						<p>
-							To prevent abuse of the second playstyle we divided each gameplay style into two different servers. The first server is the 'Main Channel' where no modifications are tolerated by utilizing our anti-cheating system. The second playstyle is only welcome in the `Fun Channel', this channel does allow modifications as the anti-cheating is disabled. However, all stats, items, or other progress obtained in the Fun Channel will be removed after logout.
-						</p>
-						<p>
-							To get started with patching your client you may want to visit our <a href="https://github.com/AnimeShooter/QPangMiniLauncher">QpangMiniLauncher</a> and look into our <a href="https://github.com/AnimeShooter/QPangMiniLauncher/blob/d8bad6bbf0fd636b22dcfc89c16edc1f1c16a73b/Program.cs#L16">existing patches</a>.
+							Done installing? Head over to the <a onclick="selectPage('Account')" href="#">Account</a> tab to register your account! No need for valid email, just don't forget your password.
 						</p>
 						</article>
 					</div>
