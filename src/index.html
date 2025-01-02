@@ -35,242 +35,266 @@
 					<li><span class="nav-item" onclick="selectPage('Online')">Online</span></li>
 					<li><span class="nav-item" onclick="selectPage('Howto')">Download</span></li>
 					<li><span class="nav-item" onclick="selectPage('Account')">Account</span></li>
-					<li><span class="nav-item"><a href="https://wiki.animeshooter.com/">Wiki</a></span></li>
-					<li><span class="nav-item"><a href="https://blog.animeshooter.com/">Blog</a></span></li>
+					<!--<li><span class="nav-item"><a href="https://wiki.animeshooter.com/">Wiki</a></span></li>
+					<li><span class="nav-item"><a href="https://blog.animeshooter.com/">Blog</a></span></li>-->
 				</ul>
 			</nav>
 			<div class="page-console">
 				
 			</div>
 		</div>
-		<div class="page-contents">
-			<!-- Home -->
-			<div class="page" id="Home" style="display: block">
-				<article>
-				<header>
-				<h1>Welcome to AnimeShooter!<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
-				<div class="carousel">
-					<div class="carousel-item">
-						<img src="img/test.jpg" alt="AnimeShooter Gameplay screenshot" width="1280" height="720" />
-					</div>
-				</div>
-				<p>
-					AnimeShooter is a private server based on QPang aka <a href="https://en.wikipedia.org/wiki/Manga_Fighter">MangaFighter</a>, the game was a multiplayer online third-person shooter developed by OnNet and hosted by game portal GamesCampus. Players will join other combatants in a 3D manga-style world, with multiple modes of combat and a variety of character customization options. The game first began its open beta on July 31, 2007, and was released to the public on December 3, 2007. The game was shut down on July 30, 2010. A Dutch version of the game remained in operation until June 2013 under the name QPang.
-				</p>
-				</header>
-				<p>
-					AnimeShooter, <b>the longest running private server</b>,  aims to re-create the original experience of the game by providing game servers that follow the exact protocol of the original game. This allows you to use the original game files <i>(and our patcher)</i> to connect to our game servers and play the game like it was 2013!
-				</p>
-				<p>
-					Hopefully, you are just as excited as we are to enjoy the game once again after roughly 8 years since the original game was discontinued!
-				</p>
-				<h2>Register</h2>
-				<p>
-					To get started, you must <a onclick="selectPage('Account')" href="#">create an account</a> at our website. Once created, you will be guided with instructions to <a href="#" onclick="selectPage('Howto')">download and install</a> the game and how you can connect to our game servers.
-				</p>
-				<p>
-					Please keep in mind that we are providing our very own game servers that come with their very own database. This means all progress from the original game is NOT there. To obtain in-game items you can use in-game currencies or real-life currencies to purchase in-game goods.
-				</p>
-				<h2>Community</h2>
-				<p>
-					We hope you will have a good time fighting with or against online players, please feel free to join our <a href="https://discord.gg/sUbpE5Qm3n">Discord server</a> where you can hang around and meet new people.
-					<a href="https://elitepvpers.com/forum" style="float:right;"><img style="float:right; width:42px;height:37px;opacity: 0.4;" src="/img/epvp.jpg" alt="elitepvpers logo" width="210" height="181"/></a>
-				</p>
-				</article>
+		<div class="page-container">
+			<div class="page-row" style="display:flex; width: 1074px;
+			position: relative;
+			left: -127px;
+			top: -90px;
+    		height: 35px;">
+				<div style="background-image: url('./img/cb_manga_stit01_t.gif'); width: 127px; height: 125px;"></div>
+				<div style="background-image: url('./img/cb_manga_tit_t.gif'); width: 669px; height: 125px;"></div>
+				<div style="background-image: url('./img/cb_manga_stit02_t.gif'); width: 127px; height: 125px;"></div>
 			</div>
-			<!-- Online -->
-			<div class="page" id="Online" style="display: none">
-				<article>
-				<header>
-				<h1>Live Server Statistics<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
-				<p>
-					Total of <span id="gs-playerscount">0</span> Players in <span id="gs-roomcount">0</span> Game Rooms!
-				</p>
-				</header>
-				<div class="page-inline-navbar">
-					<ul>
-						<li><span class="nav-item" onclick="selectOnlinePage('online-rooms')">Rooms</span></li>
-						<li><span class="nav-item" onclick="selectOnlinePage('online-players')">Players</span></li>
-						<li><span class="nav-item" onclick="selectOnlinePage('online-leaderboard')">Leaderboard</span></li>			
-					</ul>
-				</div>
-				<div class="page-online" id="online-rooms" style="display: block;">
+			<div class="page-row" style="display:flex; width: 1074px;
+			position: relative;
+			left: -127px;">
+				<div style="background-image: url('./img/cb_side_bg01_t.gif'); width: 127px; height: 1150px;"></div>
+				<div class="page-contents" style="width: 669px; margin: 0px; border: 0; border-radius: 0; box-shadow: none; background: #FFFFFF;">
+					<!-- Home -->
+					<div class="page" id="Home" style="display: block">
+						<article>
+						<header>
+						<h1>Welcome to AnimeShooter!<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
+						<div class="carousel">
+							<div class="carousel-item">
+								<img src="img/test.jpg" alt="AnimeShooter Gameplay screenshot" width="1280" height="720" />
+							</div>
+						</div>
+						<p>
+							AnimeShooter is a private server based on QPang aka <a href="https://en.wikipedia.org/wiki/Manga_Fighter">MangaFighter</a>, the game was a multiplayer online third-person shooter developed by OnNet and hosted by game portal GamesCampus. Players will join other combatants in a 3D manga-style world, with multiple modes of combat and a variety of character customization options. The game first began its open beta on July 31, 2007, and was released to the public on December 3, 2007. The game was shut down on July 30, 2010. A Dutch version of the game remained in operation until June 2013 under the name QPang.
+						</p>
+						</header>
+						<p>
+							AnimeShooter, <b>the longest running private server</b>,  aims to re-create the original experience of the game by providing game servers that follow the exact protocol of the original game. This allows you to use the original game files <i>(and our patcher)</i> to connect to our game servers and play the game like it was 2013!
+						</p>
+						<p>
+							Hopefully, you are just as excited as we are to enjoy the game once again after roughly 8 years since the original game was discontinued!
+						</p>
+						<h2>Register</h2>
+						<p>
+							To get started, you must <a onclick="selectPage('Account')" href="#">create an account</a> at our website. Once created, you will be guided with instructions to <a href="#" onclick="selectPage('Howto')">download and install</a> the game and how you can connect to our game servers.
+						</p>
+						<p>
+							Please keep in mind that we are providing our very own game servers that come with their very own database. This means all progress from the original game is NOT there. To obtain in-game items you can use in-game currencies or real-life currencies to purchase in-game goods.
+						</p>
+						<h2>Community</h2>
+						<p>
+							We hope you will have a good time fighting with or against online players, please feel free to join our <a href="https://discord.gg/sUbpE5Qm3n">Discord server</a> where you can hang around and meet new people.
+							<a href="https://elitepvpers.com/forum" style="float:right;"><img style="float:right; width:42px;height:37px;opacity: 0.4;" src="/img/epvp.jpg" alt="elitepvpers logo" width="210" height="181"/></a>
+						</p>
+						</article>
+					</div>
+					<!-- Online -->
+					<div class="page" id="Online" style="display: none">
+						<article>
+						<header>
+						<h1>Live Server Statistics<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
+						<p>
+							Total of <span id="gs-playerscount">0</span> Players in <span id="gs-roomcount">0</span> Game Rooms!
+						</p>
+						</header>
+						<div class="page-inline-navbar">
+							<ul>
+								<li><span class="nav-item" onclick="selectOnlinePage('online-rooms')">Rooms</span></li>
+								<li><span class="nav-item" onclick="selectOnlinePage('online-players')">Players</span></li>
+								<li><span class="nav-item" onclick="selectOnlinePage('online-leaderboard')">Leaderboard</span></li>			
+							</ul>
+						</div>
+						<div class="page-online" id="online-rooms" style="display: block;">
 
-				</div>
-				<div class="page-online" id="online-players" style="display: none;">
-	
-				</div>
-				<div class="page-online" id="online-leaderboard" style="display: none;">
-					<h2>Leaderboard</h2>	
-					<table>
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Name</th>
-								<th>Experience</th>
-								<th>Kills</th>
-								<th>Deaths</th>
-							</tr>
-						</thead>
-						<tbody id="leaderboard-table">
+						</div>
+						<div class="page-online" id="online-players" style="display: none;">
+			
+						</div>
+						<div class="page-online" id="online-leaderboard" style="display: none;">
+							<h2>Leaderboard</h2>	
+							<table>
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Name</th>
+										<th>Experience</th>
+										<th>Kills</th>
+										<th>Deaths</th>
+									</tr>
+								</thead>
+								<tbody id="leaderboard-table">
 
-						</tbody>
-					</table>
-				</div>
-				</article>
-			</div>
-			<!-- How To (Connect) -->
-			<div class="page" id="Howto" style="display: none">
-				<article>
-				<header>
-				<h1>How to Connect<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
-				<p>
-					<a href="download/QPangSetup.exe"><img style="float:right;" src="img/download-qpang.png" alt="Installer download button" width="184" height="90"></a>
-					Before you can play the game you must first download and install the game files, simply click the download button below to download the original QPang installer.
-					Next you want to open the installer and follow the installation wizard. After that is done you will need to download our custom launcher.
-				</p>	
-				</header>
-				<h2>Launcher</h2>
-				<p>
-					<a href="download/QPangLauncher.exe"><img style="float:right;" src="img/download-launcher.png" alt="Launcher download button" width="184" height="90"></a>
-					The game is configured to connect to the original game servers out of the box, therefore we need to ship a custom launcher that forces the connection to our very own game servers!
-				</p>
-				<p>
-					Not only do we re-configure the game connection, we also provide a bunch of patches for the game to tweak/modify all kinds of settings, configurations and even behavior of the game. More info on that follows soon.
-				</p>
-				<p>
-					On top of that, our loader also injects a small anti-cheating module inside the game. This module is responsible for two things, detecting cheats and creating a so-called 'heartbeat'. For more information, check out <a href="#">how we detect cheats</a> and <a href="#">what our anti-cheating does</a>.
-				</p>
-				<h2>Custom Patches</h2>
-				<p>
-					Here at AnimeShooter, we focus on two things thing; creating the nostalgic 2012 gaming experience but at the same time, we also want to provide a new kind of gameplay that was originally not intended. Creating the original gameplay is achieved by emulation the server as close to the original server <i>(for as far as we know)</i>.
-				</p>
-				<p>
-					The '<i>providing new kinds of gameplay</i>' is done by modifying the original game code, resulting in behavior that was never intended. Behavior such as having unlimited landmines with super-fast movement speeds. Or triple movement speed but only with melee.
-				</p>
-				<p>
-					To prevent abuse of the second playstyle we divided each gameplay style into two different servers. The first server is the 'Main Channel' where no modifications are tolerated by utilizing our anti-cheating system. The second playstyle is only welcome in the `Fun Channel', this channel does allow modifications as the anti-cheating is disabled. However, all stats, items, or other progress obtained in the Fun Channel will be removed after logout.
-				</p>
-				<p>
-					To get started with patching your client you may want to visit our <a href="https://github.com/AnimeShooter/QPangMiniLauncher">QpangMiniLauncher</a> and look into our <a href="https://github.com/AnimeShooter/QPangMiniLauncher/blob/d8bad6bbf0fd636b22dcfc89c16edc1f1c16a73b/Program.cs#L16">existing patches</a>.
-				</p>
-				</article>
-			</div>
-			<!-- Account -->
-			<div class="page" id="Account" style="display: none">
-				<h1>Account<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
-				<p id="account-error" style="color: red">
-					You are not logged in!	
-				</p>
-				<div class="account-container" id="account-login">
-					<div class="account-row">
-						<div class="account-col">
-							<div class="account-form">
-								<h3>Login</h3>
-								<p>
-									<label>Username: </label>
-									<input type="text" id="account-login-username"/><br/>
-									<label>Password: </label>
-									<input type="password" id="account-login-password"/><br/>
-									<input type="submit" value="Login" id="account-login-button"/>
-								</p>
-							</div>
+								</tbody>
+							</table>
 						</div>
-						<div class="account-col">
-							<div class="account-form">
-								<h3>Register</h3>
-								<p>
-									<label>Username: </label>
-									<input type="text" id="account-create-username" required/><br/>
-									<label>E-Mail: </label>
-									<input type="email" id="account-create-email" required/><br/>
-									<label>Password: </label>
-									<input type="password" id="account-create-password" minlength="8" required /><br/>
-									<label>Repeat Password: </label>
-									<input type="password" id="account-create-password2" minlength="8" required/><br/>
-									<input type="submit" id="account-create-button" value="Register"/>
-								</p>
-							</div>
-						</div>
+						</article>
 					</div>
-					<div>
-						<form action="?" method="POST" style="margin-top: 30px;">
-							<div class="g-recaptcha" data-sitekey="6LfAoqsbAAAAAKWJ-ifaAkQFLXFR9TABni9-ujYB"></div>
-						</form>
-					</div>	
-				</div>
-				<div class="account-container" id="account-panel" style="display: none;">
-					<div class="account-row">
-						<div class="account-col">
-							<input type="button" id="account-logout-button" value="Logout" style="float: right"/>
-							<p id="account-msg"></p>
-						</div>
+					<!-- How To (Connect) -->
+					<div class="page" id="Howto" style="display: none">
+						<article>
+						<header>
+						<h1>How to Connect<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
+						<p>
+							<a href="download/QPangSetup.exe"><img style="float:right;" src="img/download-qpang.png" alt="Installer download button" width="184" height="90"></a>
+							Before you can play the game you must first download and install the game files, simply click the download button below to download the original QPang installer.
+							Next you want to open the installer and follow the installation wizard. After that is done you will need to download our custom launcher.
+						</p>	
+						</header>
+						<h2>Launcher</h2>
+						<p>
+							<a href="download/QPangLauncher.exe"><img style="float:right;" src="img/download-launcher.png" alt="Launcher download button" width="184" height="90"></a>
+							The game is configured to connect to the original game servers out of the box, therefore we need to ship a custom launcher that forces the connection to our very own game servers!
+						</p>
+						<p>
+							Not only do we re-configure the game connection, we also provide a bunch of patches for the game to tweak/modify all kinds of settings, configurations and even behavior of the game. More info on that follows soon.
+						</p>
+						<p>
+							On top of that, our loader also injects a small anti-cheating module inside the game. This module is responsible for two things, detecting cheats and creating a so-called 'heartbeat'. For more information, check out <a href="#">how we detect cheats</a> and <a href="#">what our anti-cheating does</a>.
+						</p>
+						<h2>Custom Patches</h2>
+						<p>
+							Here at AnimeShooter, we focus on two things thing; creating the nostalgic 2012 gaming experience but at the same time, we also want to provide a new kind of gameplay that was originally not intended. Creating the original gameplay is achieved by emulation the server as close to the original server <i>(for as far as we know)</i>.
+						</p>
+						<p>
+							The '<i>providing new kinds of gameplay</i>' is done by modifying the original game code, resulting in behavior that was never intended. Behavior such as having unlimited landmines with super-fast movement speeds. Or triple movement speed but only with melee.
+						</p>
+						<p>
+							To prevent abuse of the second playstyle we divided each gameplay style into two different servers. The first server is the 'Main Channel' where no modifications are tolerated by utilizing our anti-cheating system. The second playstyle is only welcome in the `Fun Channel', this channel does allow modifications as the anti-cheating is disabled. However, all stats, items, or other progress obtained in the Fun Channel will be removed after logout.
+						</p>
+						<p>
+							To get started with patching your client you may want to visit our <a href="https://github.com/AnimeShooter/QPangMiniLauncher">QpangMiniLauncher</a> and look into our <a href="https://github.com/AnimeShooter/QPangMiniLauncher/blob/d8bad6bbf0fd636b22dcfc89c16edc1f1c16a73b/Program.cs#L16">existing patches</a>.
+						</p>
+						</article>
 					</div>
-					<div class="page-inline-navbar">
-						<ul>
-							<li><span class="nav-item" onclick="selectAccountPage('account-settings')">Settings</span></li>
-							<li><span class="nav-item" onclick="selectAccountPage('account-pkg-tools')">PKG-Tools</span></li>			
-						</ul>
-					</div>
-					<div class="page-account" id="account-settings" style="display: none">
-						<div class="account-row">
-							<p id="account-update-error" style="color: red"></p>
-						</div>	
-						<div class="account-row">
-							<div class="account-col">
-								<div class="account-form">
-									<h3>Edit Password</h3>
-									<p>
-										<label>Old Password: </label>
-										<input type="password" id="account-old-password"/>
-										<br/>
-										<label>New Password: </label>
-										<input type="password" id="account-new-password"/>
-										<br/>
-										<label>Repeat New Password: </label>
-										<input type="password" id="account-new-password2"/>
-										<br/>
-										<input type="submit" value="Update" id="account-update-button"/>	
-									</p>
+					<!-- Account -->
+					<div class="page" id="Account" style="display: none">
+						<h1>Account<span class="article-note"><span class="wsstatus dot-red">●</span> GameServer</span></h1>
+						<p id="account-error" style="color: red">
+							You are not logged in!	
+						</p>
+						<div class="account-container" id="account-login">
+							<div class="account-row">
+								<div class="account-col">
+									<div class="account-form">
+										<h3>Login</h3>
+										<p>
+											<label>Username: </label>
+											<input type="text" id="account-login-username"/><br/>
+											<label>Password: </label>
+											<input type="password" id="account-login-password"/><br/>
+											<input type="submit" value="Login" id="account-login-button"/>
+										</p>
+									</div>
+								</div>
+								<div class="account-col">
+									<div class="account-form">
+										<h3>Register</h3>
+										<p>
+											<label>Username: </label>
+											<input type="text" id="account-create-username" required/><br/>
+											<label>E-Mail: </label>
+											<input type="email" id="account-create-email" required/><br/>
+											<label>Password: </label>
+											<input type="password" id="account-create-password" minlength="8" required /><br/>
+											<label>Repeat Password: </label>
+											<input type="password" id="account-create-password2" minlength="8" required/><br/>
+											<input type="submit" id="account-create-button" value="Register"/>
+										</p>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="page-account account-row" id="account-pkg-tools" style="display: block">
-						<div class="account-row">
-							<p id="account-tool-error" style="color: red"></p>
-						</div>
-						<div class="account-row">	
-							<div class="account-col">
-								<div class="account-form">
-									<h3>Pkg Unpack</h3>
-									<p>
-										<label>File: </label>
-										<input type="File" id="account-pkg-unpack-file"/><br/>
-										<input type="submit" value="Unpack" id="account-pkg-unpack-button"/>
-									</p>
-								</div>
-							</div>
-							<div class="account-col">
-								<div class="account-form">
-									<h3>Pkg Pack</h3>
-									<p>
-										<label>File: </label>
-										<input disabled type="File" id="account-pkg-pack-file"/><br/>
-										<input disabled type="submit" value="Pack" id="account-pkg-pack-button"/>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="account-row">
-							<div class="account-col">
-								<ul id="account-pka-result">
-									<li>Files will show here after unpacking...</li>
-								</ul>	
+							<div>
+								<form action="?" method="POST" style="margin-top: 30px;">
+									<div class="g-recaptcha" data-sitekey="6LfAoqsbAAAAAKWJ-ifaAkQFLXFR9TABni9-ujYB"></div>
+								</form>
 							</div>	
 						</div>
+						<div class="account-container" id="account-panel" style="display: none;">
+							<div class="account-row">
+								<div class="account-col">
+									<input type="button" id="account-logout-button" value="Logout" style="float: right"/>
+									<p id="account-msg"></p>
+								</div>
+							</div>
+							<div class="page-inline-navbar">
+								<ul>
+									<li><span class="nav-item" onclick="selectAccountPage('account-settings')">Settings</span></li>
+									<li><span class="nav-item" onclick="selectAccountPage('account-pkg-tools')">PKG-Tools</span></li>			
+								</ul>
+							</div>
+							<div class="page-account" id="account-settings" style="display: none">
+								<div class="account-row">
+									<p id="account-update-error" style="color: red"></p>
+								</div>	
+								<div class="account-row">
+									<div class="account-col">
+										<div class="account-form">
+											<h3>Edit Password</h3>
+											<p>
+												<label>Old Password: </label>
+												<input type="password" id="account-old-password"/>
+												<br/>
+												<label>New Password: </label>
+												<input type="password" id="account-new-password"/>
+												<br/>
+												<label>Repeat New Password: </label>
+												<input type="password" id="account-new-password2"/>
+												<br/>
+												<input type="submit" value="Update" id="account-update-button"/>	
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="page-account account-row" id="account-pkg-tools" style="display: block">
+								<div class="account-row">
+									<p id="account-tool-error" style="color: red"></p>
+								</div>
+								<div class="account-row">	
+									<div class="account-col">
+										<div class="account-form">
+											<h3>Pkg Unpack</h3>
+											<p>
+												<label>File: </label>
+												<input type="File" id="account-pkg-unpack-file"/><br/>
+												<input type="submit" value="Unpack" id="account-pkg-unpack-button"/>
+											</p>
+										</div>
+									</div>
+									<div class="account-col">
+										<div class="account-form">
+											<h3>Pkg Pack</h3>
+											<p>
+												<label>File: </label>
+												<input disabled type="File" id="account-pkg-pack-file"/><br/>
+												<input disabled type="submit" value="Pack" id="account-pkg-pack-button"/>
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="account-row">
+									<div class="account-col">
+										<ul id="account-pka-result">
+											<li>Files will show here after unpacking...</li>
+										</ul>	
+									</div>	
+								</div>
+							</div>
+						</div>	
 					</div>
-				</div>	
+				</div>
+				<div style="background-image: url('./img/cb_side_bg02_t.gif'); width: 127px; height: 1150px;"></div>
+			</div>
+			<div class="page-row" style="display:flex; width: 1074px;
+			position: relative;
+			left: -127px;">
+				<div style="background-image: url('./img/cb_mg_foot_s01_t.gif'); width: 127px; height: 70px;"></div>
+				<div style="background-image: url('./img/cb_mg_foot_t.gif'); width: 669px; height: 70px;"></div>
+				<div style="background-image: url('./img/cb_mg_foot_s02_t.gif'); width: 127px; height: 70px;"></div>
 			</div>
 		</div>
 		<div class="page-footer">
@@ -303,16 +327,6 @@
 		setInterval(api.getOnlinePlayers, 30000);
 		setInterval(api.getActiveRooms, 30000);
 	}
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T2BJ5F486M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-T2BJ5F486M');
 </script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </html>
