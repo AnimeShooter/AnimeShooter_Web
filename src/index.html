@@ -172,41 +172,64 @@
 							You are not logged in!	
 						</p>
 						<div class="account-container" id="account-login">
-							<div class="account-row">
-								<div class="account-col">
-									<div class="account-form">
-										<h3>Login</h3>
-										<p>
-											<label>Username: </label>
-											<input type="text" id="account-login-username"/><br/>
-											<label>Password: </label>
-											<input type="password" id="account-login-password"/><br/>
-											<input type="submit" value="Login" id="account-login-button"/>
-										</p>
-									</div>
-								</div>
-								<div class="account-col">
-									<div class="account-form">
-										<h3>Register</h3>
-										<p>
-											<label>Username: </label>
-											<input type="text" id="account-create-username" required/><br/>
-											<label>E-Mail: </label>
-											<input type="email" id="account-create-email" required/><br/>
-											<label>Password: </label>
-											<input type="password" id="account-create-password" minlength="8" required /><br/>
-											<label>Repeat Password: </label>
-											<input type="password" id="account-create-password2" minlength="8" required/><br/>
-											<input type="submit" id="account-create-button" value="Register"/>
-										</p>
+							<!-- Login Form (Default) -->
+							<div class="auth-form-container" id="login-form">
+								<div class="auth-form">
+									<h2>Welcome Back</h2>
+									<p class="auth-subtitle">Sign in to your account</p>
+									<form class="auth-form-content">
+										<div class="form-group">
+											<label for="account-login-username">Username</label>
+											<input type="text" id="account-login-username" placeholder="Enter your username" required/>
+										</div>
+										<div class="form-group">
+											<label for="account-login-password">Password</label>
+											<input type="password" id="account-login-password" placeholder="Enter your password" required/>
+										</div>
+										<button type="submit" class="auth-button primary" id="account-login-button">Sign In</button>
+									</form>
+									<div class="auth-switch">
+										<p>Don't have an account? <a href="#" id="show-register">Register here</a></p>
 									</div>
 								</div>
 							</div>
-							<div>
-								<form action="?" method="POST" style="margin-top: 30px;">
+
+							<!-- Register Form (Hidden by default) -->
+							<div class="auth-form-container" id="register-form" style="display: none;">
+								<div class="auth-form">
+									<h2>Create Account</h2>
+									<p class="auth-subtitle">Join the AnimeShooter community</p>
+									<form class="auth-form-content">
+										<div class="form-group">
+											<label for="account-create-username">Username</label>
+											<input type="text" id="account-create-username" placeholder="Choose a username" required/>
+										</div>
+										<div class="form-group">
+											<label for="account-create-email">Email</label>
+											<input type="email" id="account-create-email" placeholder="Enter your email" required/>
+										</div>
+										<div class="form-group">
+											<label for="account-create-password">Password</label>
+											<input type="password" id="account-create-password" placeholder="Create a password (min 8 characters)" minlength="8" required />
+										</div>
+										<div class="form-group">
+											<label for="account-create-password2">Confirm Password</label>
+											<input type="password" id="account-create-password2" placeholder="Confirm your password" minlength="8" required/>
+										</div>
+										<button type="submit" class="auth-button primary" id="account-create-button">Create Account</button>
+									</form>
+									<div class="auth-switch">
+										<p>Already have an account? <a href="#" id="show-login">Sign in here</a></p>
+									</div>
+								</div>
+							</div>
+
+							<!-- reCAPTCHA -->
+							<div class="recaptcha-container">
+								<form action="?" method="POST">
 									<div class="g-recaptcha" data-sitekey="6LfAoqsbAAAAAKWJ-ifaAkQFLXFR9TABni9-ujYB"></div>
 								</form>
-							</div>	
+							</div>
 						</div>
 						<div class="account-container" id="account-panel" style="display: none;">
 							<div class="account-row">

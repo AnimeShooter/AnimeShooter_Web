@@ -1,12 +1,42 @@
-/* Events */
-document.getElementById("account-login-button").onclick = function() {
-    api.userLogin(document.getElementById("account-login-username").value, document.getElementById("account-login-password").value);
-}
-
-document.getElementById("account-create-button").onclick = function() {
-    api.userRegister(document.getElementById("account-create-username").value, document.getElementById("account-create-email").value,
-                    document.getElementById("account-create-password").value); // TODO: check second PW
-}
+/* Events - Using event delegation to handle dynamically created elements */
+document.addEventListener('click', function(e) {
+    // Login button
+    if (e.target && e.target.id === 'account-login-button') {
+        e.preventDefault();
+        api.userLogin(document.getElementById("account-login-username").value, document.getElementById("account-login-password").value);
+    }
+    
+    // Register button
+    if (e.target && e.target.id === 'account-create-button') {
+        e.preventDefault();
+        // Validate password confirmation
+        const password = document.getElementById("account-create-password").value;
+        const confirmPassword = document.getElementById("account-create-password2").value;
+        
+        if (password !== confirmPassword) {
+            document.getElementById("account-error").textContent = "Passwords do not match!";
+            return;
+        }
+        
+        api.userRegister(document.getElementById("account-create-username").value, document.getElementById("account-create-email").value, password);
+    }
+    
+    // Show register form
+    if (e.target && e.target.id === 'show-register') {
+        e.preventDefault();
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("register-form").style.display = "block";
+        document.getElementById("account-error").textContent = "";
+    }
+    
+    // Show login form
+    if (e.target && e.target.id === 'show-login') {
+        e.preventDefault();
+        document.getElementById("register-form").style.display = "none";
+        document.getElementById("login-form").style.display = "block";
+        document.getElementById("account-error").textContent = "";
+    }
+});
 
 document.getElementById("account-update-button").onclick = function() {
     api.userUpdate(document.getElementById("account-old-password").value, document.getElementById("account-new-password").value); // TOOD check seconds pw

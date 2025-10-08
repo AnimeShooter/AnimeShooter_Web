@@ -313,7 +313,131 @@ h1
 
 .account-container {
 	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
 }
+
+/* Modern Authentication Forms */
+.auth-form-container {
+	background: #ffffff;
+	border-radius: 12px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	padding: 0;
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+
+.auth-form {
+	padding: 40px;
+}
+
+.auth-form h2 {
+	color: #591a65;
+	font-size: 28px;
+	font-weight: 600;
+	margin: 0 0 8px 0;
+	text-align: center;
+}
+
+.auth-subtitle {
+	color: #666;
+	font-size: 16px;
+	text-align: center;
+	margin: 0 0 30px 0;
+}
+
+.auth-form-content {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.form-group label {
+	color: #333;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.form-group input {
+	padding: 12px 16px;
+	border: 2px solid #e1e5e9;
+	border-radius: 8px;
+	font-size: 16px;
+	transition: all 0.3s ease;
+	background: #fafafa;
+}
+
+.form-group input:focus {
+	outline: none;
+	border-color: #591a65;
+	background: #ffffff;
+	box-shadow: 0 0 0 3px rgba(89, 26, 101, 0.1);
+}
+
+.auth-button {
+	padding: 14px 24px;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	margin-top: 10px;
+}
+
+.auth-button.primary {
+	background: linear-gradient(135deg, #591a65, #7a2a8a);
+	color: white;
+}
+
+.auth-button.primary:hover {
+	background: linear-gradient(135deg, #4a1554, #6b2477);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(89, 26, 101, 0.3);
+}
+
+.auth-switch {
+	text-align: center;
+	margin-top: 24px;
+	padding-top: 20px;
+	border-top: 1px solid #e1e5e9;
+}
+
+.auth-switch p {
+	margin: 0;
+	color: #666;
+	font-size: 14px;
+}
+
+.auth-switch a {
+	color: #591a65;
+	text-decoration: none;
+	font-weight: 500;
+	transition: color 0.3s ease;
+}
+
+.auth-switch a:hover {
+	color: #7a2a8a;
+	text-decoration: underline;
+}
+
+.recaptcha-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	padding: 20px;
+	background: #f8f9fa;
+	border-radius: 8px;
+}
+
+/* Legacy account styles for compatibility */
 .account-row {
 	display: flex;
 }
