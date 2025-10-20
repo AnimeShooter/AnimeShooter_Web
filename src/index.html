@@ -187,10 +187,14 @@
 											<input type="password" id="account-login-password" placeholder="Enter your password" required/>
 										</div>
 										<button type="submit" class="auth-button primary" id="account-login-button">Sign In</button>
+										
 									</form>
 									<div class="auth-switch">
 										<p>Don't have an account? <a href="#" id="show-register">Register here</a></p>
 									</div>
+									<form class="w-100" style="display:inline-block;" method="POST" action="/OAuth2/Discord">
+										<input style="cursor: pointer;" class="w-100 auth-button primary" type="submit" value="Connect with Discord" />
+									</form>
 								</div>
 							</div>
 
